@@ -16,9 +16,9 @@ const SignUp = () => {
         middleware: 'guest',
         redirectIfAuthenticated: '/login',
     })
-    const [isChecked, setIsChecked] = useState(false);
-    const [errorCheck, setErrorCheck] = useState<string>();
-    const [stop, setStop] = useState(false);
+    const [isChecked, setIsChecked] = useState<boolean>(false);
+    const [error,setErrors] = useState<string>("");
+    const [stop, setStop] = useState<boolean>(false);
 
 
     type FormData = {
@@ -56,9 +56,15 @@ const SignUp = () => {
             }
             return;
         }
-        signup({
-            props: data,
-        })
+        try{
+            await signup({
+                setErrors,
+                props: data,
+            })
+            console.log(error)
+        }catch(e){
+            console.log(e)
+        }
     };
     return (
         <div className="flex lg:pt-4 md:pt-6 pt-8   w-full  flex-col text-primary-color items-center justify-center ">
@@ -116,11 +122,21 @@ const SignUp = () => {
                                     <div className='flex w-full gap-2  flex-col'>
                                         <label htmlFor="email">{Text.SignUp.input4}</label>
                                         <div >
-                                            <input  {...register('email', { required: true })} type="email" className={`${styleInput} ${errors.email ? "border-red-500 focus:border-red-500 " : "border-quaternary-color"} `} placeholder={Text.SignUp.placeholder4} />
+                                            <input  {...register('email', { required: true })} type="email" className={`${styleInput} ${(errors.email || error!="")  ? "border-red-500 focus:border-red-500 " : "border-quaternary-color"} `} placeholder={Text.SignUp.placeholder4} 
+                                            onChange={() => {
+                                                setErrors("")
+                                            }}
+                                            />
                                             {errors.email && <div className="text-red-500 relative flex gap-1 items-center pt-1 text-xs">
                                                 <PiWarningCircleFill className="inline-block" />
                                                 <p>
                                                     {errors.email.message}
+                                                </p>
+                                            </div>}
+                                            {error!="" && <div className="text-red-500 relative flex gap-1 items-center pt-1 text-xs">
+                                                <PiWarningCircleFill className="inline-block" />
+                                                <p>
+                                                    {error}
                                                 </p>
                                             </div>}
                                         </div>

@@ -46,15 +46,13 @@ export const useAuth = ({ middleware, redirectIfAuthenticated }: AuthProps) => {
             .get('/api/user')
             .then(res => res.data)
             .catch(error => {
-                if (error.response.status !== 409) throw error
-                router.push('/verify-email')
+                if (error.response.status === 409) router.push('/verify-email')
             }),
     )
     const csrf = () => axios.get('/sanctum/csrf-cookie')
 
-    const signup = async ( {props} : {props : RegisterProps} ) => {
+    const signup = async ( {setErrors , props} : {setErrors: (value: string) => void,props : RegisterProps} ) => {
         await csrf()
-        console.log(props)
         axios
             .post('api/register', props)
             .then(() => {
@@ -62,8 +60,7 @@ export const useAuth = ({ middleware, redirectIfAuthenticated }: AuthProps) => {
                 mutate()
             })
             .catch(error => {
-                throw error
-
+                setErrors(error.response.data.errors.email[0])
             })
     }
 
