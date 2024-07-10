@@ -1,7 +1,7 @@
 import useSWR from 'swr'
 import axios from '@/lib/axios'
 import { useParams, useRouter } from 'next/navigation'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { sign } from 'crypto';
 interface AuthProps {
     middleware?: string | null;
@@ -12,6 +12,10 @@ interface VerifyEmailProps {
     code: string;
     email: string;
 }
+
+type setErrorProp = {
+    setErrors: (value: string) => void;
+};
 
 interface ResetPasswoerdProps {
     token: string;
@@ -27,6 +31,7 @@ interface RegisterProps {
     password: string;
     password_confirmation: string;
 }
+
 interface LoginProps {
     email: string;
     password: string;
@@ -62,10 +67,8 @@ export const useAuth = ({ middleware, redirectIfAuthenticated }: AuthProps) => {
             })
     }
 
-    const login = async ({ setErrors, setStatus, props }: { setErrors: any, setStatus: any, props: LoginProps }) => {
+    const login = async ({ setErrors , props }: { setErrors: (value: string) => void, props: LoginProps  }) => {
         await csrf()
-        setErrors([])
-        setStatus(null)
         console.log(props)
         axios
             .post('api/login', props)
@@ -74,8 +77,8 @@ export const useAuth = ({ middleware, redirectIfAuthenticated }: AuthProps) => {
             }
             )
             .catch(error => {
-                setErrors(error.response.data.errors)
-                console.log(error.response.data.errors)
+                setErrors(error.response.data.message)
+                console.log(error.response.data.message)
             })
     }
 

@@ -18,6 +18,7 @@ const SignUp = () => {
     })
     const [isChecked, setIsChecked] = useState(false);
     const [errorCheck, setErrorCheck] = useState<string>();
+    const [stop, setStop] = useState(false);
 
 
     type FormData = {
@@ -45,7 +46,14 @@ const SignUp = () => {
     });
     const signupFunction = async (data: FormData) => {
         if (!isChecked) {
-            toast.error("You must agree to the terms and conditions before signing up");
+            if(!stop){
+                toast.error('Please accept the terms and conditions')
+                setStop(true)
+
+                setTimeout(() => {
+                    setStop(false)
+                },5500)
+            }
             return;
         }
         signup({
@@ -55,7 +63,6 @@ const SignUp = () => {
     return (
         <div className="flex lg:pt-4 md:pt-6 pt-8   w-full  flex-col text-primary-color items-center justify-center ">
             <ToastContainer position='top-center'  />
-            {errorCheck && <div className="text-red-500 text-sm">{errorCheck}</div>}
             <div className='w-full' >
                 <div className='w-full' >
                     <div className="w-full">
