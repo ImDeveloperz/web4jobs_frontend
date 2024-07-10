@@ -1,44 +1,57 @@
 'use client'
+import { ZodType, z } from 'zod';
 import { Text } from '@/constant'
 import { useAuth } from '@/hooks/auth';
 import Link from 'next/link';
 import React, { FormEvent, useState } from 'react'
+import {useForm} from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod';
 
 const styleInput = 'py-3 pl-6 rounded-lg bg-transparent border border-quaternary-color text-quaternary-color  focus:outline-none';
 const SignUp = () => {
-    const { register } = useAuth({
+    const { signup } = useAuth({
         middleware: 'guest',
         redirectIfAuthenticated: '/login',
     })
     const [isChecked, setIsChecked] = useState(false);
-    const [firstName, setFirstName] = useState('')
-    const [lastName, setLastName] = useState('')
-    const [birthdate, setBirthdate] = useState('')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [passwordConfirmation, setPasswordConfirmation] = useState('')
-    const [errors, setErrors] = useState<string[]>([]);
+    const [errorCheck, setErrorCheck] = useState<string>();
 
-    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+
+    type FormData = {
+        first_name: string;
+        last_name: string;
+        birthdate: string;
+        email: string;
+        password: string;
+        password_confirmation: string;
+    }
+    const SignUpSchema  : ZodType<FormData> = z.object({
+        first_name: z.string().nonempty({ message: 'First name is required' }),
+        last_name: z.string().nonempty({ message: 'Last name is required' }),
+        birthdate: z.string().nonempty({ message: 'Birthdate is required' }).regex(/^\d{4}-\d{2}-\d{2}$/),
+        email: z.string().email({ message: 'Invalid email address' }),
+        password: z.string().min(8, { message: 'Password must be at least 8 characters long' }),
+        password_confirmation: z.string().min(8),
+    }).refine(data => data.password === data.password_confirmation, {
+        message: 'Passwords do not match',
+        path: ['password_confirmation'],
+    });
+
+    const {register ,handleSubmit , formState : {errors} } = useForm<FormData>({
+        resolver: zodResolver(SignUpSchema),
+    });
+    const signupFunction = async (data : FormData) => {
         if (!isChecked) {
-            setErrors(["You must agree to the terms and conditions"]);
+            setErrorCheck("You must agree to the terms and conditions before signing up");
             return;
         }
-        register({
-            setErrors,
-            props: {
-                first_name : firstName,
-                last_name : lastName,
-                birthdate,
-                email,
-                password,
-                password_confirmation : passwordConfirmation
-            }
+        signup({
+            props : data,
         })
     };
     return (
         <div className="flex lg:pt-4 md:pt-6 pt-8   w-full  flex-col text-primary-color items-center justify-center ">
+            {errorCheck && <div className="text-red-500 text-sm">{errorCheck}</div>}
             <div className='w-full' >
                 <div className='w-full' >
                     <div className="w-full">
@@ -48,63 +61,71 @@ const SignUp = () => {
                                 <p className='text-sm font-normal'>{Text.SignUp.subTitle}</p>
                             </div>
                             <div className="flex md:text-sm text-xs items-center justify-center w-full flex-col">
-                                <form onSubmit={(e: FormEvent<HTMLFormElement>) => handleSubmit(e)} className='lg:w-[40%] gap-2 flex items-center justify-center flex-col md:w-[80%]'>
+                                <form   onSubmit={handleSubmit(signupFunction)}  className='lg:w-[40%] gap-2 flex items-center justify-center flex-col md:w-[80%]'>
                                     <div className='grid md:grid-cols-2 grid-cols-1 w-full gap-2'>
+                                        {errors.first_name && <div className="text-red-500 text-sm">{errors.first_name.message}</div>}
                                         <div className='flex flex-col gap-2'>
                                             <label htmlFor="first name">{Text.SignUp.input1}</label>
-                                            <input onChange={(e) => setFirstName(e.target.value)} className={`${styleInput}`} type="text" id='first name' placeholder={Text.SignUp.placeholder1} />
+                                            <input  {...register('first_name', {required : true} )} className={`${styleInput}`} type="text" id='first name' placeholder={Text.SignUp.placeholder1} />
                                         </div>
+                                        {errors.last_name && <div className="text-red-500 text-sm">{errors.last_name.message}</div>}
                                         <div className='flex flex-col gap-2'>
                                             <label htmlFor="last name">{Text.SignUp.input2}</label>
-                                            <input onChange={(e) => setLastName(e.target.value)} className={`${styleInput} w-full`} type="text" id='first name' placeholder={Text.SignUp.placeholder2} />
+                                            <input  {...register('last_name', {required : true})} className={`${styleInput} w-full`} type="text" id='first name' placeholder={Text.SignUp.placeholder2} />
                                         </div>
                                     </div>
+                                    {errors.birthdate && <div className="text-red-500 text-sm">{errors.birthdate.message}</div>}
                                     <div className='flex w-full gap-2 flex-col'>
                                         <label htmlFor="birth date">{Text.SignUp.input3}</label>
-                                        <input  onChange={(e) => setBirthdate(e.target.value)} className={`${styleInput} py-2 md:px-4 px-4 w-full`} type="date" placeholder={Text.SignUp.placeholder3} />
+                                        <input  {...register('birthdate', {required : true ,   
+                                         })} className={`${styleInput} py-2 md:px-4 px-4 w-full`} type="date" placeholder={Text.SignUp.placeholder3} />
                                     </div>
+                                    {errors.email && <div className="text-red-500 text-sm">{errors.email.message}</div>}
                                     <div className='flex w-full gap-2 flex-col'>
                                         <label htmlFor="email">{Text.SignUp.input4}</label>
-                                        <input onChange={(e) => setEmail(e.target.value)} type="email" className={`${styleInput}`} placeholder={Text.SignUp.placeholder4} />
+                                        <input  {...register('email', {required : true})} type="email" className={`${styleInput}`} placeholder={Text.SignUp.placeholder4} />
                                     </div>
+                                    {errors.password && <div className="text-red-500 text-sm">{errors.password.message}</div>}
                                     <div className='flex gap-2 w-full flex-col'>
                                         <label htmlFor="password">{Text.SignUp.input5}</label>
-                                        <input onChange={(e) => setPassword(e.target.value)} type="password" className={`${styleInput}`} placeholder={Text.SignUp.placeholder5} />
+                                        <input  {...register('password', {required : true})} type="password" className={`${styleInput}`} placeholder={Text.SignUp.placeholder5} />
                                     </div>
+                                    {errors.password_confirmation && <div className="text-red-500 text-sm">{errors.password_confirmation.message}</div>}
                                     <div className='flex gap-2 flex-col w-full' >
                                         <label htmlFor="password">{Text.SignUp.input6}</label>
-                                        <input  onChange={(e) => setPasswordConfirmation(e.target.value)} type="password" className={`${styleInput}`} placeholder={Text.SignUp.placeholder6} />
-                                    </div>                                        {/*check*/}
-                                        <div className="flex items-center justify-start w-full  ">
-                                            <label
-                                                className="relative flex items-center p-2 rounded-full cursor-pointer"
-                                                htmlFor="checkbox-1"
-                                                data-ripple-dark="true"
-                                            >
-                                                <input type="checkbox" id="checkbox-1"
-                                                    name="checkbox"
-                                                    onChange={(e) => setIsChecked(e.target.checked)}
-                                                    className="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border-2 border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-blue-500 checked:bg-blue-500 checked:before:bg-blue-500"
-                                                />
-                                                <div className="absolute text-white transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        className="h-3.5 w-3.5"
-                                                        viewBox="0 0 20 20"
-                                                        fill="currentColor"
-                                                        stroke="currentColor"
-                                                        strokeWidth="1"
-                                                    >
-                                                        <path
-                                                            fillRule="evenodd"
-                                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                                            clipRule="evenodd"
-                                                        ></path>
-                                                    </svg>
-                                                </div>
-                                            </label>
-                                            <p className='md:text-sm text-xs'>{Text.SignUp.check} <span className="text-tertiary-color md:text-sm text-xs hover:underline cursor-pointer  font-medium "> {Text.SignUp.link}</span> {Text.SignUp.check2}</p>
-                                        </div>
+                                        <input  {...register('password_confirmation', {required : true})} type="password" className={`${styleInput}`} placeholder={Text.SignUp.placeholder6} />
+                                    </div>                                       
+                                     {/*check*/}
+                                    <div className="flex items-center justify-start w-full  ">
+                                        <label
+                                            className="relative flex items-center p-2 rounded-full cursor-pointer"
+                                            htmlFor="checkbox-1"
+                                            data-ripple-dark="true"
+                                        >
+                                            <input type="checkbox" id="checkbox-1"
+                                                name="checkbox"
+                                                onChange={(e) => setIsChecked(e.target.checked)}
+                                                className="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border-2 border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-blue-500 checked:bg-blue-500 checked:before:bg-blue-500"
+                                            />
+                                            <div className="absolute text-white transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    className="h-3.5 w-3.5"
+                                                    viewBox="0 0 20 20"
+                                                    fill="currentColor"
+                                                    stroke="currentColor"
+                                                    strokeWidth="1"
+                                                >
+                                                    <path
+                                                        fillRule="evenodd"
+                                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                                        clipRule="evenodd"
+                                                    ></path>
+                                                </svg>
+                                            </div>
+                                        </label>
+                                        <p className='md:text-sm text-xs'>{Text.SignUp.check} <span className="text-tertiary-color md:text-sm text-xs hover:underline cursor-pointer  font-medium "> {Text.SignUp.link}</span> {Text.SignUp.check2}</p>
+                                    </div>
                                     <button className='py-3 w-full border-none flex items-center text-sm justify-center border rounded-lg bg-action-primary font-bold '>{Text.SignUp.button} </button>
                                 </form>
                                 <div className='p-6'>
