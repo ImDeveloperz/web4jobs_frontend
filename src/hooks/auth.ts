@@ -121,7 +121,7 @@ export const useAuth = ({ middleware, redirectIfAuthenticated }: AuthProps) => {
 
     const logout = async () => {
         if (!error) {
-            await axios.post('/logout').then(() => mutate())
+            await axios.post('api/logout').then(() => mutate())
         }
 
         window.location.pathname = '/login'
