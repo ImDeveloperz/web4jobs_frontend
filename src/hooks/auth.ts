@@ -70,8 +70,8 @@ export const useAuth = ({ middleware, redirectIfAuthenticated }: AuthProps) => {
         axios
             .post('api/register', props)
             .then(() => {
+                router.push('/login')
                 mutate();
-                router.push('/verifyemail?email=' + props.email);
             })
             .catch(error => {
                 setErrors(error.response.data?.errors?.email[0]);
@@ -188,7 +188,6 @@ export const useAuth = ({ middleware, redirectIfAuthenticated }: AuthProps) => {
                 router.push('/login')
             )
             .catch((error) => {
-                console.log("hhhhhh : " + error.response.data.error)
                 setErrors(error.response.data.error)
             }
             )
@@ -253,7 +252,6 @@ export const useAuth = ({ middleware, redirectIfAuthenticated }: AuthProps) => {
                 router.push('/login')
             )
             .catch((error) => {
-                console.log("hhhhhh : " + error.response.data)
                 setErrors(error.response.data.errors)
             }
             )
@@ -262,11 +260,11 @@ export const useAuth = ({ middleware, redirectIfAuthenticated }: AuthProps) => {
         console.log('user', user)
         console.log('middleware', middleware)
         console.log('redirectIfAuthenticated', redirectIfAuthenticated)
-            if (
+           /* if (
                 user  &&
                 !user?.email_verified_at
             )
-                router.push('/verifyemail?email=' + user?.email)
+                router.push('/verifyemail?email=' + user?.email) */
     
             if (middleware === 'auth' && !user) {
                 router.push('/login')
@@ -275,7 +273,6 @@ export const useAuth = ({ middleware, redirectIfAuthenticated }: AuthProps) => {
             if(middleware=="auth" && user){
                 router.push('/')
             }
-            if (middleware === "guest" && user) router.push('/')
             if (middleware === 'auth' && error) logout()
     }, [user, error])
 
