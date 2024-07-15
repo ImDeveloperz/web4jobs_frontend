@@ -7,9 +7,9 @@ import { Text } from '@/constant'
 import { useAuth } from '@/hooks/auth'
 import React from 'react'
 
-const page = () => {
-  const { user, isLoading, logout } = useAuth({ middleware: 'auth' })
-  if (isLoading || !user) return <Loading />
+const Page = () => {
+  const { user, isLoading, logout } = useAuth({ middleware: 'guest' })
+  if (isLoading ) return <Loading />
   return (
     <div >
       <Navbar user={user} logout={logout} />
@@ -18,4 +18,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

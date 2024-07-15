@@ -262,18 +262,21 @@ export const useAuth = ({ middleware, redirectIfAuthenticated }: AuthProps) => {
         console.log('user', user)
         console.log('middleware', middleware)
         console.log('redirectIfAuthenticated', redirectIfAuthenticated)
-        if(isLoading ) router.push('/')
-        if(!isLoading){
             if (
-                (user && middleware === "auth") &&
+                user  &&
                 !user?.email_verified_at
             )
                 router.push('/verifyemail?email=' + user?.email)
     
-            if(!isLoading) if (middleware === 'auth' && !user) router.push('/login')
+            if (middleware === 'auth' && !user) {
+                router.push('/login')
+                return;
+            }
+            if(middleware=="auth" && user){
+                router.push('/')
+            }
             if (middleware === "guest" && user) router.push('/')
             if (middleware === 'auth' && error) logout()
-        }
     }, [user, error])
 
     return {

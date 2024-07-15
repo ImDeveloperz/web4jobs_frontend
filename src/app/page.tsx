@@ -16,11 +16,11 @@ import Loading from "@/components/loading/Loading";
 
 export default function Home() {
   const isOpenMenu = useAtomValue(isOpenMenuAtom);
-  const { user, isLoading,logout } = useAuth({ middleware: 'auth' })
+  const { user, isLoading,logout } = useAuth({ middleware: 'guest' })
 
   const [isOpenProfile,setIsOpenProfile] = useAtom(isOpenMenuAtom);
   console.log(isOpenMenu)
-  if (isLoading || !user) return <Loading />
+  if (isLoading) return <Loading />
   return (
     <main className={`bg-primary-color ${isOpenMenu && "h-screen overflow-hidden "}`} onClick={()=>{
       setIsOpenProfile(false)
