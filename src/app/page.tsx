@@ -11,14 +11,22 @@ import Contact from "../components/contact/Contact";
 import Footer from "../components/footer/Footer";
 import { useAtom, useAtomValue } from "jotai";
 import { isOpenMenuAtom } from "../providers/atoms";
+import { useAuth } from "@/hooks/auth";
+import Loading from "@/components/loading/Loading";
 
 export default function Home() {
   const isOpenMenu = useAtomValue(isOpenMenuAtom);
+  const { user, isLoading,logout } = useAuth({ middleware: 'auth' })
+
+  const [isOpenProfile,setIsOpenProfile] = useAtom(isOpenMenuAtom);
   console.log(isOpenMenu)
+  if (isLoading || !user) return <Loading />
   return (
-    <main className={`bg-primary-color ${isOpenMenu && "h-screen overflow-hidden "}`}>
+    <main className={`bg-primary-color ${isOpenMenu && "h-screen overflow-hidden "}`} onClick={()=>{
+      setIsOpenProfile(false)
+    }}>
       <div className="bg-[url('../../public/bgHero.png')]  bg-center bg-blend-saturation bg-cover bg-no-repeat w-full ">
-        <Navbar />
+        <Navbar user={user} logout={logout} />
         <Hero />
       </div>
       <div>

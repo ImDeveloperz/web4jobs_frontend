@@ -9,18 +9,17 @@ import React, { FormEvent, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod';
 import { PiWarningCircleFill } from "react-icons/pi";
-
+import { BiSolidHide,BiSolidShow } from "react-icons/bi";
+import Loading from '@/components/loading/Loading';
 const styleInput = 'py-3 pl-6 rounded-lg bg-transparent border text-quaternary-color focus:outline-none focus:border-primary-color w-full';
 const SignUp = () => {
-    const { signup } = useAuth({
-        middleware: 'guest',
-        redirectIfAuthenticated: '/login',
-    })
+    const { signup,isLoading,isLoading2 } = useAuth({
+        middleware: 'guest'})
     const [isChecked, setIsChecked] = useState<boolean>(false);
-    const [error,setErrors] = useState<string>("");
+    const [error, setErrors] = useState<string>("");
     const [stop, setStop] = useState<boolean>(false);
-
-
+    const [showPassword, setShowPassword] = useState<boolean>(false);
+    const [showPassword2, setShowPassword2] = useState<boolean>(false);
     type FormData = {
         first_name: string;
         last_name: string;
@@ -46,29 +45,30 @@ const SignUp = () => {
     });
     const signupFunction = async (data: FormData) => {
         if (!isChecked) {
-            if(!stop){
+            if (!stop) {
                 toast.error('Please accept the terms and conditions')
                 setStop(true)
 
                 setTimeout(() => {
                     setStop(false)
-                },5500)
+                }, 5500)
             }
             return;
         }
-        try{
+        try {
             await signup({
                 setErrors,
                 props: data,
             })
             console.log(error)
-        }catch(e){
+        } catch (e) {
             console.log(e)
         }
     };
+    if(isLoading || isLoading2) return <Loading/>   
     return (
         <div className="flex lg:pt-4 md:pt-6 pt-8   w-full  flex-col text-primary-color items-center justify-center ">
-            <ToastContainer position='top-center'  />
+            <ToastContainer position='top-center' />
             <div className='w-full' >
                 <div className='w-full' >
                     <div className="w-full">
@@ -122,10 +122,10 @@ const SignUp = () => {
                                     <div className='flex w-full gap-2  flex-col'>
                                         <label htmlFor="email">{Text.SignUp.input4}</label>
                                         <div >
-                                            <input  {...register('email', { required: true })} type="email" className={`${styleInput} ${(errors.email || error!="")  ? "border-red-500 focus:border-red-500 " : "border-quaternary-color"} `} placeholder={Text.SignUp.placeholder4} 
-                                            onChange={() => {
-                                                setErrors("")
-                                            }}
+                                            <input  {...register('email', { required: true })} type="email" className={`${styleInput} ${(errors.email || error != "") ? "border-red-500 focus:border-red-500 " : "border-quaternary-color"} `} placeholder={Text.SignUp.placeholder4}
+                                                onChange={() => {
+                                                    setErrors("")
+                                                }}
                                             />
                                             {errors.email && <div className="text-red-500 relative flex gap-1 items-center pt-1 text-xs">
                                                 <PiWarningCircleFill className="inline-block" />
@@ -133,7 +133,7 @@ const SignUp = () => {
                                                     {errors.email.message}
                                                 </p>
                                             </div>}
-                                            {error!="" && <div className="text-red-500 relative flex gap-1 items-center pt-1 text-xs">
+                                            {error != "" && <div className="text-red-500 relative flex gap-1 items-center pt-1 text-xs">
                                                 <PiWarningCircleFill className="inline-block" />
                                                 <p>
                                                     {error}
@@ -143,8 +143,12 @@ const SignUp = () => {
                                     </div>
                                     <div className='flex gap-2 w-full flex-col'>
                                         <label htmlFor="password">{Text.SignUp.input5}</label>
-                                        <div>
-                                            <input  {...register('password', { required: true })} type="password" className={`${styleInput} ${errors.password ? "border-red-500 focus:border-red-500 " : "border-quaternary-color"} `} placeholder={Text.SignUp.placeholder5} />
+                                        <div className='relative'>
+                                            <input  {...register('password', { required: true })}  type={showPassword ? "text" : "password"} className={`${styleInput} ${errors.password ? "border-red-500 focus:border-red-500 " : "border-quaternary-color"} `} placeholder={Text.SignUp.placeholder5} />
+                                            {
+                                                showPassword ? <BiSolidShow onClick={() => setShowPassword(false)} className={`absolute  cursor-pointer h-6 w-5 right-4 text-quaternary-color ${!errors.password ? " top-1/2 transform -translate-y-1/2" : " top-1/4 transform -translate-y-1/4"}  `} /> : <BiSolidHide onClick={() => setShowPassword(true)}  className={`absolute  cursor-pointer h-6 w-5 right-4 text-quaternary-color ${!errors.password ? " top-1/2 transform -translate-y-1/2" : " top-1/4 transform -translate-y-1/4"}  `} />
+                                            }
+                                           
                                             {errors.password && <div className="text-red-500 flex gap-1 items-center pt-1 text-xs">
                                                 <PiWarningCircleFill className="inline-block" />
                                                 <p>
@@ -155,8 +159,12 @@ const SignUp = () => {
                                     </div>
                                     <div className='flex gap-2 flex-col w-full' >
                                         <label htmlFor="password">{Text.SignUp.input6}</label>
-                                        <div>
-                                            <input  {...register('password_confirmation', { required: true })} type="password" className={`${styleInput} ${errors.password_confirmation ? "border-red-500 focus:border-red-500 " : "border-quaternary-color"} `} placeholder={Text.SignUp.placeholder6} />
+                                        <div className='relative'>
+                                            <input  {...register('password_confirmation', { required: true })}  type={showPassword2 ? "text" : "password"} className={`${styleInput} ${errors.password_confirmation ? "border-red-500 focus:border-red-500 " : "border-quaternary-color"} `} placeholder={Text.SignUp.placeholder5} />
+                                            {
+                                                showPassword2 ? <BiSolidShow onClick={() => setShowPassword2(false)} className={`absolute  cursor-pointer h-6 w-5 right-4 text-quaternary-color ${!errors.password_confirmation ? " top-1/2 transform -translate-y-1/2" : " top-1/4 transform -translate-y-1/4"} `} /> : <BiSolidHide onClick={() => setShowPassword2(true)} className={`absolute  cursor-pointer h-6 w-5 right-4 text-quaternary-color ${!errors.password_confirmation ? " top-1/2 transform -translate-y-1/2" : " top-1/4 transform -translate-y-1/4"}  `}  />
+                                            }
+                                           
                                             {errors.password_confirmation && <div className="text-red-500 flex gap-1 items-center pt-1 text-xs">
                                                 <PiWarningCircleFill className="inline-block" />
                                                 <p>

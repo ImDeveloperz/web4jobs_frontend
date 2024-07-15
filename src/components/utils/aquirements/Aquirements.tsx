@@ -11,9 +11,9 @@ interface AquirementsProgramProps {
 }
 const Aquirements = ({ title, subTitle, list, imageUrl }: AquirementsProgramProps) => {
     return (
-        <div className='flex w-full '>
+        <div className='flex w-full pt-8 '>
             <div className='flex flex-col gap-10 lg:w-[58%] w-full  '>
-                <div className='flex flex-col gap-1'>
+                <div className='flex flex-col gap-2'>
                     <h1 className='text-2xl font-bold'>{title}</h1>
                     <h3 className='font-normal text-xs md:text-base '>{subTitle}</h3>
                 </div>

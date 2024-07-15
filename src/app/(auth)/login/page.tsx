@@ -3,7 +3,7 @@ import NavbarAuth from '@/components/auth/navbar/NavbarAuth'
 import BackLink from '@/components/utils/backLink/BackLink'
 import React from 'react'
 
-const page = () => {
+const Page = () => {
   return (
     <div>
       <NavbarAuth />
@@ -13,4 +13,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

@@ -1,4 +1,4 @@
-import InsertCode from '@/components/auth/2-forgotPassword/InsertCode'
+import InsertCode from '@/components/auth/verifyemail/InsertCode'
 import NavbarAuth from '@/components/auth/navbar/NavbarAuth'
 import BackLink from '@/components/utils/backLink/BackLink'
 import React from 'react'

@@ -19,10 +19,10 @@ const CardProgram = ({ imageUrl, title, description, buttonText,link }: CardProg
                 <Image alt={title} className='rounded-lg ' src={imageUrl} width={200} height={200} />
             </div>
             <div className='flex flex-col gap-2'>
-                <h1 className='font-bold text-2xl tracking-wider'>
+                <h1 className='font-bold md:text-2xl text-[15px] tracking-wider'>
                     {title}
                 </h1>
-                <p className='w-full '>
+                <p className='w-full md:text-sm text-xs text-[#CCCCCC]  '>
                     {description}
                 </p>
             </div>

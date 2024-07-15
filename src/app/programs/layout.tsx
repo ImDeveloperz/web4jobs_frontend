@@ -25,7 +25,6 @@ export default function RootLayout({
   return (
     <div className={``}>
       <div className="bg-primary-color">
-        <Navbar />
         <GlobalProvider >
           {children}
         </GlobalProvider>

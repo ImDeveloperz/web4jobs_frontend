@@ -868,8 +868,8 @@ const Text = {
         button : "Recover Your Password",
     },
     ForgotPassword2 : {
-        title : "Forgot Password?",
-        subTitle : "Please enter the 4 digits code sent to your email!",
+        title : "Email Verification ",
+        subTitle : "Please enter the 6 digits code sent to your email!",
         text : "didn't receive the code?",
         link : "Resend Code",
         button : "Verify and Proceed",
@@ -883,5 +883,49 @@ const Text = {
         placeholder2 : "Retype your new password...",
         button : "Change Password",
     },
+    Dashboard : {
+        mycertificates : {
+            title : "My Certificates",
+            cards : [
+                {
+                    title : "Full Stack Development",
+                    image : "/program1.svg",
+                    level : "Entry Level : NOOB",
+                    description : "This program focuses on front-end and back-end development, as well as strong fundamentals in data structures...",
+                    link : "/certificates/fullStack"
+                },
+                {
+                    title : "DevOps/Cloud Engineering",
+                    image : "/cloud1.svg",
+                    level : "Entry Level : NOOB",
+                    description : "This program focuses on DevOps/Cloud Engineering principles, as well as strong fundamentals in data structures...",
+                    link : "/certificates/cloud"
+                },
+                {
+                    title : "Data Science",
+                    image : "/data1.svg",
+                    level : "Entry Level : NOOB",
+                    description : "This program focuses on data science principles, as well as strong fundamentals in data structures...",
+                    link : "/certificates/dataScience"
+                },
+                {
+                    title : "Machine Learning",
+                    image : "/machineL1.svg",
+                    level : "Entry Level : NOOB",
+                    description : "This program focuses on the fundamentals of machine learning and data engineering as well as strong fundamentals in data...",
+                    link : "/certificates/machineLearning"
+                },
+                {
+                    title : "Software Engineering",
+                    image : "/softwareE1.svg",
+                    level : "Entry Level : NOOB",
+                    description : 'This program focuses on software engineering principles, as well as strong fundamentals in data structures...',
+                    link : "/certificates/softwareEngineering"
+                },
+            ]
+            
+        },
+    }
+
 }
 export default Text;

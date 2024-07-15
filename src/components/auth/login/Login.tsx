@@ -1,4 +1,5 @@
 "use client"
+import Loading from '@/components/loading/Loading';
 import { Text } from '@/constant'
 import { useAuth } from '@/hooks/auth';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -6,19 +7,20 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
+import { BiSolidHide, BiSolidShow } from 'react-icons/bi';
 import { FaGoogle, FaApple } from "react-icons/fa";
 import { PiWarningCircleFill } from 'react-icons/pi';
 import { ZodType, z } from 'zod';
-const styleInput = 'py-3 pl-6 rounded-lg bg-transparent border border-quaternary-color text-quaternary-color  focus:outline-none';
+const styleInput = 'py-3 pl-6 w-full rounded-lg bg-transparent border border-quaternary-color text-quaternary-color  focus:outline-none';
 
 const Login = () => {
     const router = useRouter()
     const [error, setErrors] = useState<string>("")
     const [shouldRemember, setShouldRemember] = useState<boolean>(false)
     const { login } = useAuth({
-        middleware: 'guest',
-        redirectIfAuthenticated: '/mycourses',
+        middleware: 'guest'
     })
+    const [showPassword, setShowPassword] = useState<boolean>(false);
 
     type FormData = {
         email: string;
@@ -50,7 +52,6 @@ const Login = () => {
             //errors
         }
     };
-
     return (
         <div className="flex lg:pt-4 md:pt-6 pt-8   w-full flex-col text-primary-color items-center justify-center ">
             <div className="container">
@@ -87,13 +88,19 @@ const Login = () => {
                                         </div>
                                         <div className='flex gap-2 w-full flex-col'>
                                             <label htmlFor="password">{Text.SignIn.input2}</label>
-                                            <input {...register('password', { required: true })} type="password" className={`${styleInput} ${errors.password ? "border-red-500 focus:border-red-500 " : "border-quaternary-color"}`} placeholder={Text.SignIn.placeholder2} />
+                                            <div className='relative w-full'>
+                                            <input  {...register('password', { required: true })}  type={showPassword ? "text" : "password"} className={`${styleInput}  ${errors.password ? "border-red-500 focus:border-red-500 " : "border-quaternary-color"} `} placeholder={Text.SignUp.placeholder5} />
+                                            {
+                                                showPassword ? <BiSolidShow onClick={() => setShowPassword(false)} className={`absolute  cursor-pointer h-6 w-5 right-4 text-quaternary-color ${!errors.password ? " top-1/2 transform -translate-y-1/2" : " top-1/4 transform -translate-y-1/4"}  `} /> : <BiSolidHide onClick={() => setShowPassword(true)}  className={`absolute  cursor-pointer h-6 w-5 right-4 text-quaternary-color ${!errors.password ? " top-1/2 transform -translate-y-1/2" : " top-1/4 transform -translate-y-1/4"}  `} />
+                                            }
+                                           
                                             {errors.password && <div className="text-red-500 flex gap-1 items-center pt-1 text-xs">
                                                 <PiWarningCircleFill className="inline-block" />
                                                 <p>
                                                     {errors.password.message}
                                                 </p>
                                             </div>}
+                                        </div>
                                         </div>
                                         {/*check*/}
                                         <div className='flex w-full justify-between items-center'>

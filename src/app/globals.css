@@ -30,13 +30,23 @@ input:-webkit-autofill:active  {
   -webkit-box-shadow: 0 0 0px 1000px transparent inset;
   transition: background-color 5000s ease-in-out 0s;
 }
+.triangle{
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid white;
+}
 input {
   caret-color: white;
 }
 input[type="date"]::-webkit-calendar-picker-indicator {
   opacity: 0;
+  cursor: pointer;
 }
-
+input[type="password"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
 /* Add a custom icon */
 input[type="date"] {
   background-image: url('/date.svg');
@@ -65,4 +75,15 @@ body {
   box-sizing: border-box;
   scroll-behavior: smooth;
   overflow-x: hidden;
+}
+.loading{
+  animation: pulse .8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .3;
+  }
 }

@@ -10,12 +10,11 @@ const InsertEmail = () => {
     middleware: 'guest',
   })
   const [email, setEmail] = useState('')
-  const [errors, setErrors] = useState([])
+  const [errors, setErrors] = useState<string>()
   const [status, setStatus] = useState<string | null>()
   const submitForm = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    forgotPassword({ setErrors, setStatus, email});
+    forgotPassword({ setErrors, email});
   };
   return (
     <div className='w-full pt-10  h-full'>

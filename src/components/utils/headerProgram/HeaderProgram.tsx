@@ -17,8 +17,8 @@ const HeaderProgram = ({
     imageUrl
 }: HeaderProgramProps) => {
     return (
-        <div className='flex w-full md:pt-10 '>
-            <div className='flex flex-col gap-6 lg:w-[58%] w-full md:pt-4 '>
+        <div className='flex w-full md:pt-10 pt-8 '>
+            <div className='flex flex-col gap-6 lg:w-[58%] w-full pt-4 '>
                 <div className='flex flex-col gap-2'>
                     <h3 className='text-2xl font-bold'>{title}</h3>
                     <div className='flex gap-2 items-center'>

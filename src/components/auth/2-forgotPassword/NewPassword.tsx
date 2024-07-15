@@ -15,7 +15,7 @@ const NewPassword = () => {
   const [token, setToken] = useState('')
   const [password, setPassword] = React.useState('')
   const [passwordConfirmation, setPasswordConfirmation] = React.useState('')
-  const [errors, setErrors] = useState([])
+  const [errors, setErrors] = useState<string>()
   const [status, setStatus] = useState(null)
 
   const submitForm = (event: React.FormEvent<HTMLElement>) => {
@@ -23,7 +23,6 @@ const NewPassword = () => {
 
     resetPassword({
       setErrors,
-      setStatus,
       props: {
         email,
         token,

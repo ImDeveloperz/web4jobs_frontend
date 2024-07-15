@@ -17,7 +17,7 @@ const screenWidth = "2xl:max-w-[1200px] mx-auto xl:max-w-[1300px] lg:max-w-[1000
 
 const Program = ({item} : ProgramProps) => {
   return (
-    <div className={`${screenWidth} mx-auto text-primary-color`}>
+    <div className={`${screenWidth} mx-auto flex gap-10 flex-col text-primary-color`}>
         <BackLink />
         <HeaderProgram title={item.Hero.title} subTitle={item.Hero.subTitle} review={item.Hero.review} imageUrl={item.Hero.image} description={item.Hero.description} />
         <Aquirements title={item.Aquirements.title} subTitle={item.Aquirements.subTitle} list={item.Aquirements.list} imageUrl={item.Aquirements.image} />

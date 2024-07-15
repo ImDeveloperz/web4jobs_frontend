@@ -5,11 +5,13 @@ import { Text } from '@/constant'
 import { useAtom } from 'jotai';
 import { isOpenMenuAtom } from '@/providers/atoms';
 import Link from 'next/link';
+import { useAuth } from '@/hooks/auth';
+import Profile from '../dashboard/utils/profile/Profile';
 export const buttonCssPrimary = "bg-action-primary px-6 focus:bg-focus-primary rounded-md font-bold text-[14px] hover:bg-hover-primary py-3"
 export const screenWidth = "2xl:max-w-[1200px] mx-auto xl:max-w-[1300px] lg:max-w-[1000px] md:max-w-[1000px] max-w-[700px] px-6 "
 
-const Navbar = () => {
-    
+const Navbar = ({ user, logout }: { user: any, logout: any }) => {
+
     const [isOpenMenu, setIsOpenMenu] = useAtom(isOpenMenuAtom);
     return (
         <div className={`py-10 mx-auto flex items-center justify-between w-full text-primary-color ${screenWidth} `} >
@@ -28,9 +30,13 @@ const Navbar = () => {
                             ))}
                         </ul>
                     </div>
-                    <Link href="/signup">
-                        <button className={buttonCssPrimary}>{Text.Navbar.button}</button>
-                    </Link>
+                    {
+                        user ? (
+                            <Profile user={user} logout={logout} />
+                        ) : (<Link href="/signup">
+                            <button className={buttonCssPrimary}>{Text.Navbar.button}</button>
+                        </Link>)
+                    }
                 </div>
             </div>
             <div className={`items-center md:hidden flex w-full  justify-between `}>

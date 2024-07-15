@@ -1,4 +1,4 @@
-import NewPassword from '@/components/auth/3-forgotPassword/NewPassword'
+import NewPassword from '@/components/auth/2-forgotPassword/NewPassword'
 import NavbarAuth from '@/components/auth/navbar/NavbarAuth'
 import BackLink from '@/components/utils/backLink/BackLink'
 import React from 'react'
