@@ -26,16 +26,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={nunito.className} >
-        <GlobalProvider >
-          <div className="bg-secondary-color ">
-            <div className={` ${screenWidth} min-h-screen  mx-auto `}>
-              {children}
-            </div>
-          </div>
-        </GlobalProvider>
-      </body>
-    </html>
+    <GlobalProvider >
+      <div className="bg-secondary-color ">
+        <div className={` ${screenWidth} min-h-screen  mx-auto `}>
+          {children}
+        </div>
+      </div>
+    </GlobalProvider>
   );
 }

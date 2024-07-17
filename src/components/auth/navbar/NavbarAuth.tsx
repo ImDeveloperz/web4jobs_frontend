@@ -10,10 +10,10 @@ const NavbarAuth = () => {
     return (
         <div className='w-full  md:mb-5 py-6 text-primary-color flex justify-between items-center'>
                 <div className='lg:hidden'>
-                    <Image src='/logo.svg' className=' ' layout="intrinsic" alt='logo' width={166} height={61} />
+                    <Image src='/logo.svg'  alt='logo' width={166} height={61} priority/>
                 </div>
                 <div className='lg:flex hidden'>
-                    <Image src='/logo.svg' className=' ' alt='logo' width={150} height={200} />
+                    <Image src='/logo.svg' alt='logo' width={150} height={200} priority />
                 </div>
                 
             <div>

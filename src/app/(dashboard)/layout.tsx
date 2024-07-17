@@ -24,12 +24,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={nunito.className}>
-          <GlobalProvider >         
-            {children}
-          </GlobalProvider>
-      </body>
-    </html>
+    <GlobalProvider >
+      {children}
+    </GlobalProvider>
   );
 }

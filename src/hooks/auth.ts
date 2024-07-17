@@ -1,3 +1,4 @@
+"use client"
 import useSWR from 'swr'
 import axios from '@/lib/axios'
 import { useParams, useRouter } from 'next/navigation'
@@ -89,7 +90,8 @@ export const useAuth = ({ middleware, redirectIfAuthenticated }: AuthProps) => {
             .then((response) => {
                 const { access_token, refresh_token, expires_in, refresh_expires_in } = response.data;
                 storeTokens({ accessToken: access_token, refreshToken: refresh_token, accessTokenExpiry: Date.now() + expires_in * 1000, refreshTokenExpiry: Date.now() + refresh_expires_in * 1000 })
-                    mutate()
+                router.push('/')
+                mutate()
             }
             )
             .catch(error => {

@@ -52,6 +52,7 @@ const Login = () => {
             //errors
         }
     };
+   
     return (
         <div className="flex lg:pt-4 md:pt-6 pt-8   w-full flex-col text-primary-color items-center justify-center ">
             <div className="container">
