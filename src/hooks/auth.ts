@@ -1,4 +1,4 @@
-"use client"
+
 import useSWR from 'swr'
 import axios from '@/lib/axios'
 import { useParams, useRouter } from 'next/navigation'
@@ -71,7 +71,8 @@ export const useAuth = ({ middleware, redirectIfAuthenticated }: AuthProps) => {
         axios
             .post('api/register', props)
             .then(() => {
-                router.push('/login')
+                //verifyEmail
+                router.push('/verifyemail?email=' + props.email)
                 mutate();
             })
             .catch(error => {
@@ -262,11 +263,11 @@ export const useAuth = ({ middleware, redirectIfAuthenticated }: AuthProps) => {
         console.log('user', user)
         console.log('middleware', middleware)
         console.log('redirectIfAuthenticated', redirectIfAuthenticated)
-           /* if (
+            if (
                 user  &&
                 !user?.email_verified_at
             )
-                router.push('/verifyemail?email=' + user?.email) */
+                router.push('/verifyemail?email=' + user?.email) 
     
             if (middleware === 'auth' && !user) {
                 router.push('/login')
