@@ -81,19 +81,19 @@ const InsertCode = () => {
         <div className='md:text-3xl text-2xl text-center font-bold'>{Text.ForgotPassword2.title}</div>
         <div className='md:text-sm text-xs text-center'>{Text.ForgotPassword2.subTitle}</div>
       </div>
-      {error && <div className='text-red-500 text-sm'>{error}</div>}
+      {error && <div className='text-red-500 md:text-sm text-xs'>{error}</div>}
       <form onSubmit={handleSubmit(verify)} className='flex flex-col gap-4'>
-        <div className="flex items-center text-white justify-center gap-3">
+        <div className="flex items-center text-white justify-center lg:gap-3 gap-2">
           {[...Array(6)].map((_, index) => (
             <div key={index} className={styleInput}>
               <input
                 {...register(`input${index + 1}` as keyof FormData)}
                 onChange={(e) => handleInputChange(e, index)}
                 type="text"
-                className="w-14 bg-transparent h-14 text-center text-2xl font-extrabold hover:border-slate-200 appearance-none rounded p-4 outline-none"
+                className="lg:w-14 md:w-10 w-8 bg-transparent lg:h-14 md:h-10 h-10  text-center md:text-2xl text-sm font-extrabold hover:border-slate-200 appearance-none rounded lg:p-4 md:p-3 p-2 outline-none"
                 maxLength={1}
               />
-              <div className={`w-full h-[1px] `}></div>
+              <div className={`w-full h-[1px]`}></div>
             </div>
           ))}
         </div>
