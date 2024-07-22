@@ -16,31 +16,37 @@ import Loading from "@/components/loading/Loading";
 
 export default function Home() {
   const isOpenMenu = useAtomValue(isOpenMenuAtom);
-  const { user, isLoading,logout } = useAuth({ middleware: 'guest' })
+  const { user, isLoading, logout } = useAuth({ middleware: 'guest' })
 
-  const [isOpenProfile,setIsOpenProfile] = useAtom(isOpenMenuAtom);
+  const [isOpenProfile, setIsOpenProfile] = useAtom(isOpenMenuAtom);
   console.log(isOpenMenu)
   if (isLoading) return <Loading />
   return (
-    <main className={`bg-primary-color ${isOpenMenu && "h-screen overflow-hidden "}`} onClick={()=>{
+    <main className={`bg-primary-color ${isOpenMenu && "h-screen overflow-hidden "}`} onClick={() => {
       setIsOpenProfile(false)
     }}>
-      <div className="bg-[url('../../public/bgHero.png')]  bg-center bg-blend-saturation bg-cover bg-no-repeat w-full ">
-        <Navbar user={user} logout={logout} />
-        <Hero />
-      </div>
-      <div>
-        <Stats />
-      </div>
-      <div className="bg-[url('../../public/bg2.png')]  bg-center bg-blend-saturation bg-cover bg-no-repeat w-full ">
-        <Futur />
-      </div>
-      <Strategy />
-      <Prep />
-      <Programs />
-      <WhoAreYou />
-      <Contact />
-        <Footer />
+      <section id="home" >
+        <div className="bg-[url('../../public/bgHero.png')]  bg-center bg-blend-saturation bg-cover bg-no-repeat w-full ">
+          <Navbar user={user} logout={logout} />
+          <Hero />
+        </div>
+        <div>
+          <Stats />
+        </div>
+      </section>
+      <section id="about">
+        <div className="bg-[url('../../public/bg2.png')]  bg-center bg-blend-saturation bg-cover bg-no-repeat w-full ">
+          <Futur />
+        </div>
+        <Strategy />
+        <Prep />
+      </section>
+      <section id="programs">
+        <Programs />
+        <WhoAreYou />
+        <Contact />
+      </section>
+      <Footer />
     </main>
   );
 }

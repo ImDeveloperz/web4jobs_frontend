@@ -5,8 +5,10 @@ import React, { useState } from 'react'
 const FormContact = () => {
     const [city, setCity] = useState('')
     const [role, setRole] = useState('')
-
-    return (
+    const cities = ["Casablanca", "Rabat", "Fes", "Marrakech", "Tangier", /* more cities here */];
+    const roles = ["Student", "Teacher", "Parent", "Other", /* more roles here */];
+    const programs = ["Full Stack Program", "DevOps & Cloud Program", "Data-Science Program", "Machine Learning Program", "Software Engeneering Program", /* more programs here */];
+    return ( 
         <div className='mx-auto font-normal md:text-base text-xs max-w-[610px]'>
             <form className='flex flex-col gap-2 w-full '>
                 <div className='grid md:grid-cols-2 grid-cols-1 gap-2 w-full'>
@@ -28,28 +30,47 @@ const FormContact = () => {
                     <input type='' placeholder='Type your phone number...' className='py-3 pl-6 rounded-lg bg-transparent border border-quaternary-color text-quaternary-color  focus:outline-none' id='phone' />
                 </div>
                 <div className='flex gap-2 flex-col  '>
-                    <div>
-                        <h4>City</h4>
+                    <div className='flex gap-2 flex-col'>
+                        <div>
+                            <h4>City</h4>
+                        </div>
+                        <div className='flex  rounded-lg pr-6 border border-quaternary-color text-quaternary-color w-full justify-between items-center'>
+                            <select  className=' rounded-lg bg-transparent w-full py-3 cursor-pointer px-6 h-full border-none text-quaternary-color  focus:outline-none'>
+                                <option value="">Choose your city...</option>
+                                {cities.map((city, index) => (
+                                    <option key={index} value={city}>{city}</option>
+                                ))}
+                            </select>
+                        </div>
                     </div>
-                    <div className='flex cursor-pointer rounded-lg px-6 py-3 border border-quaternary-color text-quaternary-color w-full justify-between items-center' >
-                        Choose your city...
-                        <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
-                        </svg>
+        
+                    <div className='flex flex-col gap-2'>
+                        <div>
+                            <h4>Who are you </h4>
+                        </div>
+                        <div className='flex  rounded-lg pr-6 border border-quaternary-color text-quaternary-color w-full justify-between items-center'>
+                            <select  className=' rounded-lg bg-transparent w-full py-3 cursor-pointer px-6 h-full border-none text-quaternary-color  focus:outline-none'>
+                                <option value="">Choose your role</option>
+                                {roles.map((role, index) => (
+                                    <option key={index} value={role}>{role}</option>
+                                ))}
+                            </select>
+                        </div>
                     </div>
                     <div className='flex flex-col gap-2'>
                         <div>
-                            <h4>Who Are You?</h4>
+                            <h4>Program </h4>
                         </div>
-                        <div className='flex  cursor-pointer rounded-lg px-6 py-3 w-full border border-quaternary-color text-quaternary-color justify-between items-center ' >
-                            <p>Select your role...  </p>
-                            <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
-                            </svg>
+                        <div className='flex  rounded-lg pr-6 border border-quaternary-color text-quaternary-color w-full justify-between items-center'>
+                            <select  className=' rounded-lg bg-transparent w-full py-3 cursor-pointer px-6 h-full border-none text-quaternary-color  focus:outline-none'>
+                                <option value="">Choose your program ...</option>
+                                {programs.map((program, index) => (
+                                    <option key={index} value={program}>{program}</option>
+                                ))}
+                            </select>
                         </div>
                     </div>
                 </div>
-
                 <div>
                     <button className='py-3 mt-2 w-full border-none flex items-center md:text-base text-xs justify-center border rounded-lg bg-action-primary font-bold '>
                         {Text.pages.Acceuil.Contact.button}

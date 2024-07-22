@@ -1,12 +1,12 @@
 import { Text } from '@/constant'
 import Image from 'next/image'
-import React from 'react'
+import React, { useRef } from 'react'
 import CardProgram from '../utils/cardProgram/CardProgram'
 import { screenWidth } from '../navbar/Navbar'
 
 const Programs = () => {
   return (
-    <div className={`${screenWidth} text-primary-color w-full lg:py-20 flex flex-col py-10 md:gap-10 gap-6 `}>
+    <div  className={`${screenWidth}  text-primary-color w-full lg:py-20 flex flex-col py-10 md:gap-10 gap-6 `}>
       <div className='flex flex-col gap-2'>
         <h1 className="font-bold tracking-wider leading-9 md:text-[32px]  text-[24px]">
           {Text.pages.Acceuil.Programs.title}

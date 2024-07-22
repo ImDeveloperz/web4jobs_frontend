@@ -12,7 +12,6 @@ const Page = () => {
   return (
     <div>
       <NavbarAuth />
-      <BackLink />
       <Login />
     </div>
   )

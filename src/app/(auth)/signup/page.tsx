@@ -14,7 +14,6 @@ const Page = () => {
     <div className='bg-secondary-color'>
       <div >
         <NavbarAuth />
-        <BackLink />
         <SignUp />
       </div>
     </div>

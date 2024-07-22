@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
+    "@nextui-org/react": "^2.4.6",
     "atom": "^1.4.2",
     "axios": "^1.7.2",
+    "framer-motion": "^11.3.8",
     "gsap": "^3.12.5",
     "jotai": "^2.8.3",
     "js-cookie": "^3.0.5",

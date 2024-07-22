@@ -76,7 +76,7 @@ const InsertCode = () => {
   }
 
   return (
-    <div className='lg:w-[50%] w-full pt-10 gap-10 text-white flex-col flex items-center justify-center'>
+    <div className='lg:w-[50%] w-full pt-10 gap-10 text-white flex-col  flex items-center justify-center'>
       <div className='flex flex-col gap-1'>
         <div className='md:text-3xl text-2xl text-center font-bold'>{Text.ForgotPassword2.title}</div>
         <div className='md:text-sm text-xs text-center'>{Text.ForgotPassword2.subTitle}</div>

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react'
 
 interface listScheduleProps {
@@ -36,12 +37,11 @@ const CardSchedule = ({ title, title2, color, list,bg,textColorButton,hover }: C
               </div>
             ))}
           </div>
-
         </div>
       </div>
-      <div>
+      <Link href="/signup">
         <button className={`${bg+' '+textColorButton} ${hover === "hover:bg-hover-primary" ? hover : "hover:bg-hover-secondary"} w-full text-center font-bold mt-4 py-3.5 rounded-lg `} >Go For It</button>
-      </div>
+      </Link>
     </div>
   )
 }

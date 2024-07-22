@@ -1,18 +1,35 @@
-
 const Text = {
     Navbar: {
-        listMenu: ['Home', 'Programs', 'Events', 'About'],
+        listMenu: [
+            {
+                name: 'Home',
+                link: '#home'
+            },
+            {
+                name: 'About',
+                link: '#about'
+            },
+            {
+                name: 'Programs',
+                link: '#programs'
+            },
+            {
+                name: 'Blogs',
+                link: 'https://www.yool.education/blog'
+            },
+        ],
         button: "Join Us Now!",
         listLang: ['English (Uk)', 'Francais (Fr)'],
     },
     pages: {
         Acceuil: {
             Hero: {
-                title: 'Choose your 2-month summer training with ',
-                title2: 'SummerTech!',
-                subTitle: 'Sillicon Valley Platform« QWASAR »',
+                title: 'Web4jobs is the first Moroccan ',
+                title2: 'Tech Innovative Training',
+                subTitle: "platform powered by",
+                subTitle2: ' « QWASAR » a Sillicon Valley company',
                 listAdvantages: ['24 hour access to coding platform.', '24 hour live-chat platform.', 'Guardianship/mentorshipavailable.', 'Part-timeand full-time training.', 'Extra-curricularactivities.', 'Certificateof completion.'],
-                button: 'Join Our SummerCamp',
+                button: 'Discover Our Programs',
                 imgUrl: '/../../../public/bgHero.jpeg',
             },
             Stats: {
@@ -39,7 +56,9 @@ const Text = {
             Futur: {
                 title: 'The Future Of',
                 title2: 'Tech Education',
-                discription: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt.",
+                discription: "21st Century workplaceSkills are skills and abilities that have been identified as important for success in the 21st century.particularly compared to previous centuries.",
+                discription2: "They include:",
+                list: ["Propleme solving and critical thinking", "Creativity and innovation", "Communication", "Collaboration and teamwork", "Resourcefulness", "Ability to handle complexity and complexe problems", "Flexibility"],
             },
             Strategy: {
                 title: 'Approach To Learning',
@@ -47,22 +66,22 @@ const Text = {
                 cards: [
                     {
                         title: 'Project-Based Learning',
-                        description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in.",
+                        description: "Students tackle challenging software projects to build key skills and problem-solving abilities. They also face coding exercises to prepare for technical interviews.",
                         color: 'text-secondary-color',
                     },
                     {
                         title: 'Practice & Repetition',
-                        description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in.",
+                        description: "Confidence in software engineering comes from practice and repetition. These actions reduce anxiety in the workplace and during job interviews.",
                         color: 'text-secondary-color',
                     },
                     {
                         title: 'Role Play',
-                        description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in.",
+                        description: "We employ role play for technical interviews and salary negotiation prep. You'll experience both sides (unique to our program), which will make you ready for real interviews.",
                         color: 'text-tertiary-color',
                     },
                     {
                         title: 'Community',
-                        description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in.",
+                        description: "Knowledge thrives in our student community. We support your transition into tech roles. Your job is simply to engage and contribute.",
                         color: 'text-tertiary-color',
                     },
                 ],
@@ -104,9 +123,9 @@ const Text = {
             Programs: {
                 title: "3 Levels Remote Training Program",
                 subTitle: "Our teaching strategie is based on a 3 poles plan",
-                subTitle1: "Noob",
-                subTitle2: "Apprentice",
-                subTitle3: "Confirmed",
+                subTitle1: "NOOP",
+                subTitle2: "APPRENTICE",
+                subTitle3: "CONFIRMED",
                 cards: [
                     {
                         image: "/program1.svg",
@@ -154,21 +173,21 @@ const Text = {
                         title: "Student",
                         description: "Regardless of where you start in your journey, prepare yourself to take your career to the next level.",
                         buttonText: "Join Now!",
-                        link : "whoAreYou/student"
+                        link: "whoAreYou/student"
                     },
                     {
                         image: "/corporate.svg",
                         title: "Corporate",
                         description: "Regardless of where you start in your journey, prepare yourself to take your career to the next level.",
                         buttonText: "Join Now!",
-                        link : "whoAreYou/corporate"
+                        link: "whoAreYou/corporate"
                     },
                     {
                         image: "/publicAdmin.svg",
                         title: "Public Administration",
                         description: "Regardless of where you start in your journey, prepare yourself to take your career to the next level.",
                         buttonText: "Join Now!",
-                        link : "whoAreYou/publicAdministration"
+                        link: "whoAreYou/publicAdministration"
                     },
                 ]
             },
@@ -185,7 +204,7 @@ const Text = {
                 title: 'Full Stack Program',
                 review: 4.8,
                 subTitle: "Introduction",
-                description: 'Qwasar Silicon Valley offers a competency-based certification in Full Stack Development. The program covers essential skills for creating software applications, websites, and mobile apps, focusing on both the front-end (appearance) and back-end (data and algorithms). ',
+                description: 'Web4jobs by Qwasar Silicon Valley offers a competency-based certification in Full Stack Development. The program covers essential skills for creating software applications, websites, and mobile apps, focusing on both the front-end (appearance) and back-end (data and algorithms). ',
                 image: "/program1.svg",
             },
             Aquirements: {
@@ -238,10 +257,10 @@ const Text = {
             Cources: {
                 title: "Course Meeting Schedule",
                 subTitle: "This is a schedule of our courses,",
-                subTitle2: "3 months each!",
+                subTitle2: "Download the program",
                 cards: [
                     {
-                        title: "Level 1 : Noob",
+                        title: "Level 1 : NOOB",
                         title2: "3 Months!",
                         color: "text-secondary-color",
                         list: [
@@ -260,7 +279,7 @@ const Text = {
                         colorButtonText: "text-primary-color"
                     },
                     {
-                        title: "Level  2 : Apprentice",
+                        title: "Level  2 : APPRENTICE",
                         title2: "3 Months!",
                         color: "text-tertiary-color",
                         list: [
@@ -274,7 +293,7 @@ const Text = {
                         colorButtonText: "text-black"
                     },
                     {
-                        title: "Level 3 : Confirmed",
+                        title: "Level 3 : CONFIRMED",
                         title2: "3 Months!",
                         color: "text-secondary-color",
                         list: [
@@ -299,7 +318,7 @@ const Text = {
                 title: 'DevOps & Cloud Program',
                 review: 4.8,
                 subTitle: "Introduction",
-                description: 'Qwasar Silicon Valley offers a competency-based DevOps/Cloud certification program. It teaches skills for becoming a DevOps/Cloud Engineer, focusing on building and maintaining server or cloud infrastructure. The program covers system maintenance, monitoring, scaling systems, and optimiTerraform, Puppet, Chef, Ansible, Jenkins, AWS/GCP/Azure,zing server use based on demand. ',
+                description: 'Web4jobs by Qwasar Silicon Valley offers a competency-based DevOps/Cloud certification program. It teaches skills for becoming a DevOps/Cloud Engineer, focusing on building and maintaining server or cloud infrastructure. The program covers system maintenance, monitoring, scaling systems, and optimiTerraform, Puppet, Chef, Ansible, Jenkins, AWS/GCP/Azure,zing server use based on demand. ',
                 image: "/cloud1.svg",
             },
             Aquirements: {
@@ -352,10 +371,10 @@ const Text = {
             Cources: {
                 title: "Course Meeting Schedule",
                 subtitle: "This is a schedule of our courses,",
-                subTitle2: " 3 months each!",
+                subTitle2: "Download the program",
                 cards: [
                     {
-                        title: "Level 1 : Noob",
+                        title: "Level 1 : NOOB",
                         title2: "3 Months!",
                         color: "text-secondary-color",
                         list: [
@@ -369,10 +388,10 @@ const Text = {
                         ],
                         bg: "bg-action-primary",
                         hover: "hover:bg-hover-primary",
-                        colorButtonText: "text-primary-color"        
+                        colorButtonText: "text-primary-color"
                     },
                     {
-                        title: "Level  2 : Apprentice",
+                        title: "Level  2 : APPRENTICE",
                         title2: "3 Months!",
                         color: "text-tertiary-color",
                         list: [
@@ -386,7 +405,7 @@ const Text = {
                         colorButtonText: "text-black"
                     },
                     {
-                        title: "Level 3 : Confirmed",
+                        title: "Level 3 : CONFIRMED",
                         title2: "3 Months!",
                         color: "text-secondary-color",
                         list: [
@@ -407,13 +426,13 @@ const Text = {
                 title: 'Data-Science Program',
                 review: 4.8,
                 subTitle: "Introduction",
-                description: 'Qwasar Silicon Valley offers a competency-based Data Science certification program. It covers data management from collection to decision-making and fundamentals in data structures and algorithms. Students learn programming concepts, data analysis, machine learning, and visualization using Python, Panda, Jupyter, Keras, and TensorFlow. Projects involve large, cost-optimized data sets. ',
+                description: 'Web4jobs by Qwasar Silicon Valley offers a competency-based Data Science certification program. It covers data management from collection to decision-making and fundamentals in data structures and algorithms. Students learn programming concepts, data analysis, machine learning, and visualization using Python, Panda, Jupyter, Keras, and TensorFlow. Projects involve large, cost-optimized data sets. ',
                 image: "/data1.svg",
             },
             Aquirements: {
                 title: 'Students Aquirements',
                 subTitle: 'At the end of the training this is what students will have aquired!',
-                list : ["Python, Pytorch, R, SQL and noSQL databases","Splunk, Tableau, data visualt","Front-end and back-end programming", "Ruby on Rails", "Javascript", "Advanced SQL database knowledge", "RESTful APIs, software architecture", "Structured problem solving and debugging", "Data structures and algorithms", "SEO", "SQL, SQLite, and databases", "Wordpress, Shopify, and website CMSs", "Cloud-hosting and app deployment", "Extensive use of industry-standard tools such as Git, IDEs, and terminal commands"], 
+                list: ["Python, Pytorch, R, SQL and noSQL databases", "Splunk, Tableau, data visualt", "Front-end and back-end programming", "Ruby on Rails", "Javascript", "Advanced SQL database knowledge", "RESTful APIs, software architecture", "Structured problem solving and debugging", "Data structures and algorithms", "SEO", "SQL, SQLite, and databases", "Wordpress, Shopify, and website CMSs", "Cloud-hosting and app deployment", "Extensive use of industry-standard tools such as Git, IDEs, and terminal commands"],
                 image: "/data2.svg",
             },
             WhatToExpect: {
@@ -460,10 +479,10 @@ const Text = {
             Cources: {
                 title: "Course Meeting Schedule",
                 subtitle: "This is a schedule of our courses,",
-                subTitle2: " 3 months each!",
+                subTitle2: "Download the program",
                 cards: [
                     {
-                        title: "Level 1 : Noob",
+                        title: "Level 1 : NOOB",
                         title2: "3 Months!",
                         color: "text-secondary-color",
                         list: [
@@ -480,13 +499,13 @@ const Text = {
                         colorButtonText: "text-primary-color"
                     },
                     {
-                        title: "Level  2 : Apprentice",
+                        title: "Level  2 : APPRENTICE",
                         title2: "3 Months!",
                         color: "text-tertiary-color",
                         list: [
                             {
                                 subTitle: "Season : 2nd Data-Science",
-                                list: ["My Mr Clean", "Bootcamp Data Science", "My Open the Iris", "My First Scraper", "My Tu Verras", "My M and A", "My Convex Optimization", "My Linear Regression","My MobApp Studio","My Netflix"],
+                                list: ["My Mr Clean", "Bootcamp Data Science", "My Open the Iris", "My First Scraper", "My Tu Verras", "My M and A", "My Convex Optimization", "My Linear Regression", "My MobApp Studio", "My Netflix"],
                             }
                         ],
                         bg: "bg-action-secondary",
@@ -495,7 +514,7 @@ const Text = {
 
                     },
                     {
-                        title: "Level 3 : Confirmed",
+                        title: "Level 3 : CONFIRMED",
                         title2: "3 Months!",
                         color: "text-secondary-color",
                         list: [
@@ -516,7 +535,7 @@ const Text = {
                 title: 'Machine Learning Program',
                 review: 4.8,
                 subTitle: "Introduction",
-                description: 'Qwasar Silicon Valley offers a competency-based Machine Learning certification program. It covers machine learning, data engineering, data structures, and algorithms. Students learn programming concepts, front-end and back-end languages like JavaScript, Python, Pytorch, and TensorFlow. Projects focus on databases, architecture, large data sets, and cloud deployment.',
+                description: 'Web4jobs by Qwasar Silicon Valley offers a competency-based Machine Learning certification program. It covers machine learning, data engineering, data structures, and algorithms. Students learn programming concepts, front-end and back-end languages like JavaScript, Python, Pytorch, and TensorFlow. Projects focus on databases, architecture, large data sets, and cloud deployment.',
                 image: "/machineL1.svg",
             },
             Aquirements: {
@@ -578,10 +597,10 @@ const Text = {
             Cources: {
                 title: "Course Meeting Schedule",
                 subtitle: "This is a schedule of our courses,",
-                subTitle2: " 3 months each!",
+                subTitle2: "Download the program",
                 cards: [
                     {
-                        title: "Level 1 : Noob",
+                        title: "Level 1 : NOOB",
                         title2: "3 Months!",
                         color: "text-secondary-color",
                         list: [
@@ -598,13 +617,13 @@ const Text = {
                         colorButtonText: "text-primary-color"
                     },
                     {
-                        title: "Level  2 : Apprentice",
+                        title: "Level  2 : APPRENTICE",
                         title2: "3 Months!",
                         color: "text-tertiary-color",
                         list: [
                             {
                                 subTitle: "Season : 2nd AI/ML",
-                                list: ["My Mr Clean", "Bootcamp Data Science", "My Open the Iris", "My First Scraper", "My Tu Verras", "My M and A", "My Convex Optimization", "My Linear Regression","My MobApp Studio","My Netflix"],
+                                list: ["My Mr Clean", "Bootcamp Data Science", "My Open the Iris", "My First Scraper", "My Tu Verras", "My M and A", "My Convex Optimization", "My Linear Regression", "My MobApp Studio", "My Netflix"],
                             }
                         ],
                         bg: "bg-action-secondary",
@@ -612,7 +631,7 @@ const Text = {
                         colorButtonText: "text-black"
                     },
                     {
-                        title: "Level 3 : Confirmed",
+                        title: "Level 3 : CONFIRMED",
                         title2: "3 Months!",
                         color: "text-secondary-color",
                         list: [
@@ -633,13 +652,13 @@ const Text = {
                 title: 'Software Engeneering Program',
                 review: 4.8,
                 subTitle: "Introduction",
-                description: 'Qwasar Silicon Valley offers a competency-based Software Engineering certification program. It teaches the skills needed to build and engineer software and technical infrastructure, handling large data sets and advanced algorithms. The focus is on problem-solving and system design.',
+                description: 'Web4jobs by Qwasar Silicon Valley offers a competency-based Software Engineering certification program. It teaches the skills needed to build and engineer software and technical infrastructure, handling large data sets and advanced algorithms. The focus is on problem-solving and system design.',
                 image: "/softwareE1.svg",
             },
             Aquirements: {
                 title: 'Students Aquirements',
                 subTitle: 'At the end of the training this is what students will have aquired!',
-                list : [
+                list: [
                     "Advanced algorithms",
                     "Advanced data structures and databases",
                     "C++/OOP",
@@ -698,10 +717,10 @@ const Text = {
             Cources: {
                 title: "Course Meeting Schedule",
                 subtitle: "This is a schedule of our courses,",
-                subTitle2: " 3 months each!",
+                subTitle2: "Download the program",
                 cards: [
                     {
-                        title: "Level 1 : Noob",
+                        title: "Level 1 : NOOB",
                         title2: "3 Months!",
                         color: "text-secondary-color",
                         list: [
@@ -718,7 +737,7 @@ const Text = {
                         colorButtonText: "text-primary-color"
                     },
                     {
-                        title: "Level  2 : Apprentice",
+                        title: "Level  2 : APPRENTICE",
                         title2: "3 Months!",
                         color: "text-tertiary-color",
                         list: [
@@ -732,7 +751,7 @@ const Text = {
                         colorButtonText: "text-black"
                     },
                     {
-                        title: "Level 3 : Confirmed",
+                        title: "Level 3 : CONFIRMED",
                         title2: "3 Months!",
                         color: "text-secondary-color",
                         list: [
@@ -743,54 +762,54 @@ const Text = {
                         ],
                         bg: "bg-action-primary",
                         hover: "hover:bg-hover-primary",
-                        colorButtonText: "text-primary-color"  
+                        colorButtonText: "text-primary-color"
                     }
                 ]
             }
         },
     },
-    WhoAreYou : {
-        Student : {
-            title : "Student",
-            subTitle : "Lorem Ipsum Dolor Net Si!",
+    WhoAreYou: {
+        Student: {
+            title: "Student",
+            subTitle: "Lorem Ipsum Dolor Net Si!",
             title2: "Introduction",
             description1: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in.",
             title3: "Privileges",
-            span1 : "Students",
+            span1: "Students",
             description2: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in.",
             title4: "How A",
             span2: "Student",
-            title5 : "Can Contact Us?",
+            title5: "Can Contact Us?",
             description3: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in.",
-            image : "/student.svg",
+            image: "/student.svg",
         },
-        Corporate : {
-            title : "Corporate",
-            subTitle : "Lorem Ipsum Dolor Net Si!",
+        Corporate: {
+            title: "Corporate",
+            subTitle: "Lorem Ipsum Dolor Net Si!",
             title2: "Introduction",
             description1: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in.",
             title3: "Privileges",
-            span1 : "Corporates",
+            span1: "Corporates",
             description2: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in.",
             title4: "How A",
             span2: "Corporate",
-            title5 : "Can Join Us?",
+            title5: "Can Join Us?",
             description3: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in.",
-            image : "/corporate.svg",
+            image: "/corporate.svg",
         },
-        PublicAdministration : {
-            title : "Public Administration",
-            subTitle : "Lorem Ipsum Dolor Net Si!",
+        PublicAdministration: {
+            title: "Public Administration",
+            subTitle: "Lorem Ipsum Dolor Net Si!",
             title2: "Introduction",
             description1: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in.",
             title3: "Privileges",
-            span1 : "Public Administration",
+            span1: "Public Administration",
             description2: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in.",
             title4: "How A",
             span2: "Public Administration",
-            title5 : "Can Contact Us?",
+            title5: "Can Contact Us?",
             description3: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in.",
-            image : "/publicAdmin.svg",
+            image: "/publicAdmin.svg",
         }
     },
     Footer: {
@@ -798,133 +817,167 @@ const Text = {
         logo2: '/logo.svg',
         logo3: '/logo3.svg',
         title1: 'Pages & Links',
-        list1: ['Home', 'Programs', 'Events', 'About'],
+        list1: [
+            {
+                name: 'Home',
+                link: '#home'
+            },
+            {
+                name: 'About',
+                link: '#about'
+            },
+            {
+                name: 'Programs',
+                link: '#programs'
+            },
+            {
+                name: 'Blogs',
+                link: 'https://www.yool.education/blog'
+            },
+        ],
         title2: 'Our Partners',
-        list2: ['Company 1', 'Company 2', 'Company 3', 'Company 4'],
+        list2: ['Noos', 'Cih', 'Capgemini', 'AttijariWafa Bank'],
         title3: 'Our Socials',
         list3: [
             {
                 icon: '/facbook.svg',
-                link: 'summertech@00'
+                name: 'facebook@web4jobsmaroc',
+                link: 'https://www.facebook.com/Web4jobsmaroc?mibextid=ZbWKwL'
             },
             {
                 icon: '/instagram.svg',
-                link: 'summertech@00'
+                name: 'instagram@web4jobsmaroc',
+                link: 'https://www.instagram.com/web4jobsmaroc/'
             },
             {
-                icon: '/google.svg',
-                link: '00summertech@'
+                icon: '/linkedin.svg',
+                name: 'linkedin@web4jobs',
+                link: 'https://www.linkedin.com/company/web4jobs/'
             },
-            {
-                icon: '/tiktok.svg',
-                link: 'summercamp_00@'
-            }
         ],
         copyRight: 'All Right Reserved. 2024',
         iconCopyRight: '©',
     },
-    SignUp : {
-        title : "Sign Up",
-        subTitle : "Please enter your informations!",
-        input1 : "First Name",
-        placeholder1 : "First Name...",
-        input2 : "Last Name",
-        placeholder2 : "Last Name...",
-        input3 : "Date of Birth",
-        placeholder3 : "Date of Birth...",
-        input4 : "Email Adress",
-        placeholder4 : "Type your email here...",
-        input5 : "Password",
-        placeholder5 : "Type your password here ...",
-        input6 : "Confirm Password",
-        placeholder6 : "Comfirme your password ...",
-        check : "I read and agree to the ",
-        link : "Privacy Policy",
-        check2 : "of Web4Jobs!",
-        button : "Sign Up",
-        text : "Already have an account?",
-        link2 : "Sign In",
+    SignUp: {
+        title: "Sign Up",
+        subTitle: "Please enter your informations!",
+        input1: "First Name",
+        placeholder1: "First Name...",
+        input2: "Last Name",
+        placeholder2: "Last Name...",
+        input3: "Date of Birth",
+        placeholder3: "Date of Birth...",
+        input4: "Email Adress",
+        placeholder4: "Type your email here...",
+        input5: "Password",
+        placeholder5: "Type your password here ...",
+        input6: "Confirm Password",
+        placeholder6: "Comfirme your password ...",
+        check: "I read and agree to the ",
+        link: "Privacy Policy " ,
+        check2: "of Web4Jobs!",
+        button: "Sign Up",
+        text: "Already have an account?",
+        link2: "Sign In",
     },
-    SignIn : {
-        title : "Sign In",
-        subTitle : "Please enter your informations!",
-        input1 : "Email Adress",
-        placeholder : "Type your email here...",
-        input2 : "Password",
-        placeholder2 : "Type your password here...",
-        check : "Remember me",
-        button : "Sign In",
-        link : "Forgot Password?",
-        button2 : "Login with Google",
-        button3 : "Login with Apple",
-        text : "Don't have an account?",
-        link2 : "Sign Up",
-    },  
-    ForgotPassword1 : {
-        title : "Forgot Password?",
-        subTitle : "Please enter your email to recover your password!",
-        input1 : "Email Adress",
-        placeholder : "Type your email here...",
-        button : "Recover Your Password",
+    SignIn: {
+        title: "Sign In",
+        subTitle: "Please enter your informations!",
+        input1: "Email Adress",
+        placeholder: "Type your email here...",
+        input2: "Password",
+        placeholder2: "Type your password here...",
+        check: "Remember me",
+        button: "Sign In",
+        link: "Forgot Password?",
+        button2: "Login with Google",
+        button3: "Login with Apple",
+        text: "Don't have an account?",
+        link2: "Sign Up",
     },
-    ForgotPassword2 : {
-        title : "Email Verification ",
-        subTitle : "Please enter the 6 digits code sent to your email!",
-        text : "didn't receive the code?",
-        link : "Resend Code",
-        button : "Verify and Proceed",
+    ForgotPassword1: {
+        title: "Forgot Password?",
+        subTitle: "Please enter your email to recover your password!",
+        input1: "Email Adress",
+        placeholder: "Type your email here...",
+        button: "Recover Your Password",
     },
-    ForgotPassword3 : {
-        title : "Forgot Password?",
-        subTitle : "Please enter your new password!",
-        input1 : "New Password",
-        placeholder : "Type your new password ...",
-        input2 : "Password Confirmation",
-        placeholder2 : "Retype your new password...",
-        button : "Change Password",
+    ForgotPassword2: {
+        title: "Email Verification ",
+        subTitle: "Please enter the 6 digits code sent to your email!",
+        text: "didn't receive the code?",
+        link: "Resend Code",
+        button: "Verify and Proceed",
     },
-    Dashboard : {
-        mycertificates : {
-            title : "My Certificates",
-            cards : [
+    ForgotPassword3: {
+        title: "Forgot Password?",
+        subTitle: "Please enter your new password!",
+        input1: "New Password",
+        placeholder: "Type your new password ...",
+        input2: "Password Confirmation",
+        placeholder2: "Retype your new password...",
+        button: "Change Password",
+    },
+    Dashboard: {
+        mycertificates: {
+            title: "My Certificates",
+            cards: [
                 {
-                    title : "Full Stack Development",
-                    image : "/program1.svg",
-                    level : "Entry Level : NOOB",
-                    description : "This program focuses on front-end and back-end development, as well as strong fundamentals in data structures...",
-                    link : "/certificates/fullStack"
+                    title: "Full Stack Development",
+                    image: "/program1.svg",
+                    level: "Entry Level : NOOB",
+                    description: "This program focuses on front-end and back-end development, as well as strong fundamentals in data structures...",
+                    link: "/certificates/fullStack"
                 },
                 {
-                    title : "DevOps/Cloud Engineering",
-                    image : "/cloud1.svg",
-                    level : "Entry Level : NOOB",
-                    description : "This program focuses on DevOps/Cloud Engineering principles, as well as strong fundamentals in data structures...",
-                    link : "/certificates/cloud"
+                    title: "DevOps/Cloud Engineering",
+                    image: "/cloud1.svg",
+                    level: "Entry Level : NOOB",
+                    description: "This program focuses on DevOps/Cloud Engineering principles, as well as strong fundamentals in data structures...",
+                    link: "/certificates/cloud"
                 },
                 {
-                    title : "Data Science",
-                    image : "/data1.svg",
-                    level : "Entry Level : NOOB",
-                    description : "This program focuses on data science principles, as well as strong fundamentals in data structures...",
-                    link : "/certificates/dataScience"
+                    title: "Data Science",
+                    image: "/data1.svg",
+                    level: "Entry Level : NOOB",
+                    description: "This program focuses on data science principles, as well as strong fundamentals in data structures...",
+                    link: "/certificates/dataScience"
                 },
                 {
-                    title : "Machine Learning",
-                    image : "/machineL1.svg",
-                    level : "Entry Level : NOOB",
-                    description : "This program focuses on the fundamentals of machine learning and data engineering as well as strong fundamentals in data...",
-                    link : "/certificates/machineLearning"
+                    title: "Machine Learning",
+                    image: "/machineL1.svg",
+                    level: "Entry Level : NOOB",
+                    description: "This program focuses on the fundamentals of machine learning and data engineering as well as strong fundamentals in data...",
+                    link: "/certificates/machineLearning"
                 },
                 {
-                    title : "Software Engineering",
-                    image : "/softwareE1.svg",
-                    level : "Entry Level : NOOB",
-                    description : 'This program focuses on software engineering principles, as well as strong fundamentals in data structures...',
-                    link : "/certificates/softwareEngineering"
+                    title: "Software Engineering",
+                    image: "/softwareE1.svg",
+                    level: "Entry Level : NOOB",
+                    description: 'This program focuses on software engineering principles, as well as strong fundamentals in data structures...',
+                    link: "/certificates/softwareEngineering"
                 },
             ]
-            
         },
+        Settings: {
+            title: "General Settings",
+            cancelButton: "Cancel",
+            saveButton: "Save Changes",
+            changePasswordButton: "Change Password",
+            title1: "Full Name",
+            subTitle1: "Your first and last name",
+            title2: "Avatar",
+            subTitle2: "Your avatar will be used to identify you on the platform",
+            button2: "Choose",
+            description: "JPG, GIF or PNG, 1MB Max",
+            title3: "Phone Number",
+            subTitle3: "Your phone number will be used to contact you by the support team",
+            title4: "Address",
+            subTitle4: "Will help as to know your position to send you the certificate ",
+            title5: "Email Contact",
+            subTitle5: "Your principal Email will be used to contact you by the support team",
+        }
+
     }
 
 }

@@ -9,12 +9,18 @@ import React, { FormEvent, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod';
 import { PiWarningCircleFill } from "react-icons/pi";
-import { BiSolidHide,BiSolidShow } from "react-icons/bi";
+import { BiSolidHide, BiSolidShow } from "react-icons/bi";
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, RadioGroup, Radio } from "@nextui-org/react";
+
 import Loading from '@/components/loading/Loading';
+import BackLink from '@/components/utils/backLink/BackLink';
 const styleInput = 'py-3 pl-6 rounded-lg bg-transparent border text-quaternary-color focus:outline-none focus:border-primary-color w-full';
+
+
 const SignUp = () => {
-    const { signup,isLoading,isLoading2 } = useAuth({
-        middleware: 'guest'})
+    const { signup, isLoading, isLoading2 } = useAuth({
+        middleware: 'guest'
+    })
     const [isChecked, setIsChecked] = useState<boolean>(false);
     const [error, setErrors] = useState<string>("");
     const [stop, setStop] = useState<boolean>(false);
@@ -43,10 +49,14 @@ const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
         resolver: zodResolver(SignUpSchema),
     });
+
+    const { isOpen, onOpen, onOpenChange } = useDisclosure();
+
     const signupFunction = async (data: FormData) => {
+        console.log("kkrrtgjtrjtr : "+isChecked)
         if (!isChecked) {
             if (!stop) {
-                toast.error('Please accept the terms and conditions')
+                toast.error('Please read and accept the terms and conditions')
                 setStop(true)
 
                 setTimeout(() => {
@@ -54,20 +64,27 @@ const SignUp = () => {
                 }, 5500)
             }
             return;
-        }
-        try {
-            await signup({
-                setErrors,
-                props: data,
-            })
-            console.log(error)
-        } catch (e) {
-            console.log(e)
+        }else{
+            try {
+                await signup({
+                    setErrors,
+                    props: data,
+                })
+                setIsChecked(false)
+                console.log(error)
+            } catch (e) {
+                console.log(e)
+                setIsChecked(false)
+            }
         }
     };
-    if(isLoading || isLoading2) return <Loading/>   
+    if (isLoading || isLoading2) return <Loading />
     return (
-        <div className="flex lg:pt-4 md:pt-6 pt-8   w-full  flex-col text-primary-color items-center justify-center ">
+      <div className=''>
+          <div className="flex pt-[100px]  relative  w-full  flex-col text-primary-color items-center justify-center ">
+            <div className='absolute left-0 top-4'>
+                <BackLink />
+            </div>
             <ToastContainer position='top-center' />
             <div className='w-full' >
                 <div className='w-full' >
@@ -144,11 +161,11 @@ const SignUp = () => {
                                     <div className='flex gap-2 w-full flex-col'>
                                         <label htmlFor="password">{Text.SignUp.input5}</label>
                                         <div className='relative'>
-                                            <input  {...register('password', { required: true })}  type={showPassword ? "text" : "password"} className={`${styleInput} ${errors.password ? "border-red-500 focus:border-red-500 " : "border-quaternary-color"} `} placeholder={Text.SignUp.placeholder5} />
+                                            <input  {...register('password', { required: true })} type={showPassword ? "text" : "password"} className={`${styleInput} ${errors.password ? "border-red-500 focus:border-red-500 " : "border-quaternary-color"} `} placeholder={Text.SignUp.placeholder5} />
                                             {
-                                                showPassword ? <BiSolidShow onClick={() => setShowPassword(false)} className={`absolute  cursor-pointer h-6 w-5 right-4 text-quaternary-color ${!errors.password ? " top-1/2 transform -translate-y-1/2" : " top-1/4 transform -translate-y-1/4"}  `} /> : <BiSolidHide onClick={() => setShowPassword(true)}  className={`absolute  cursor-pointer h-6 w-5 right-4 text-quaternary-color ${!errors.password ? " top-1/2 transform -translate-y-1/2" : " top-1/4 transform -translate-y-1/4"}  `} />
+                                                showPassword ? <BiSolidShow onClick={() => setShowPassword(false)} className={`absolute  cursor-pointer h-6 w-5 right-4 text-quaternary-color ${!errors.password ? " top-1/2 transform -translate-y-1/2" : " top-1/4 transform -translate-y-1/4"}  `} /> : <BiSolidHide onClick={() => setShowPassword(true)} className={`absolute  cursor-pointer h-6 w-5 right-4 text-quaternary-color ${!errors.password ? " top-1/2 transform -translate-y-1/2" : " top-1/4 transform -translate-y-1/4"}  `} />
                                             }
-                                           
+
                                             {errors.password && <div className="text-red-500 flex gap-1 items-center pt-1 text-xs">
                                                 <PiWarningCircleFill className="inline-block" />
                                                 <p>
@@ -160,11 +177,11 @@ const SignUp = () => {
                                     <div className='flex gap-2 flex-col w-full' >
                                         <label htmlFor="password">{Text.SignUp.input6}</label>
                                         <div className='relative'>
-                                            <input  {...register('password_confirmation', { required: true })}  type={showPassword2 ? "text" : "password"} className={`${styleInput} ${errors.password_confirmation ? "border-red-500 focus:border-red-500 " : "border-quaternary-color"} `} placeholder={Text.SignUp.placeholder5} />
+                                            <input  {...register('password_confirmation', { required: true })} type={showPassword2 ? "text" : "password"} className={`${styleInput} ${errors.password_confirmation ? "border-red-500 focus:border-red-500 " : "border-quaternary-color"} `} placeholder={Text.SignUp.placeholder5} />
                                             {
-                                                showPassword2 ? <BiSolidShow onClick={() => setShowPassword2(false)} className={`absolute  cursor-pointer h-6 w-5 right-4 text-quaternary-color ${!errors.password_confirmation ? " top-1/2 transform -translate-y-1/2" : " top-1/4 transform -translate-y-1/4"} `} /> : <BiSolidHide onClick={() => setShowPassword2(true)} className={`absolute  cursor-pointer h-6 w-5 right-4 text-quaternary-color ${!errors.password_confirmation ? " top-1/2 transform -translate-y-1/2" : " top-1/4 transform -translate-y-1/4"}  `}  />
+                                                showPassword2 ? <BiSolidShow onClick={() => setShowPassword2(false)} className={`absolute  cursor-pointer h-6 w-5 right-4 text-quaternary-color ${!errors.password_confirmation ? " top-1/2 transform -translate-y-1/2" : " top-1/4 transform -translate-y-1/4"} `} /> : <BiSolidHide onClick={() => setShowPassword2(true)} className={`absolute  cursor-pointer h-6 w-5 right-4 text-quaternary-color ${!errors.password_confirmation ? " top-1/2 transform -translate-y-1/2" : " top-1/4 transform -translate-y-1/4"}  `} />
                                             }
-                                           
+
                                             {errors.password_confirmation && <div className="text-red-500 flex gap-1 items-center pt-1 text-xs">
                                                 <PiWarningCircleFill className="inline-block" />
                                                 <p>
@@ -182,7 +199,9 @@ const SignUp = () => {
                                         >
                                             <input type="checkbox" id="checkbox-1"
                                                 name="checkbox"
-                                                onChange={(e) => setIsChecked(e.target.checked)}
+                                                onChange={(e) => {setIsChecked(e.target.checked);
+                                                    console.log( "ernjre : "+ e.target.checked)}
+                                                }
                                                 className="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border-2 border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-blue-500 checked:bg-blue-500 checked:before:bg-blue-500"
                                             />
                                             <div className="absolute text-white transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
@@ -202,7 +221,106 @@ const SignUp = () => {
                                                 </svg>
                                             </div>
                                         </label>
-                                        <p className='md:text-sm text-xs'>{Text.SignUp.check} <span className="text-tertiary-color md:text-sm text-xs hover:underline cursor-pointer  font-medium "> {Text.SignUp.link}</span> {Text.SignUp.check2}</p>
+                                        <p className='md:text-sm text-xs'>{Text.SignUp.check} <span onClick={onOpen}  className="text-tertiary-color md:text-sm text-xs hover:underline cursor-pointer  font-medium ">
+                                            {Text.SignUp.link}                 
+                                        </span>{ Text.SignUp.check2}</p>
+                                        <Modal className='dark text-white'
+                                                isOpen={isOpen}
+                                                onOpenChange={onOpenChange}
+                                                scrollBehavior="inside"
+                                                size='xl'
+                                            >
+                                                <ModalContent>
+                                                    {(onClose) => (
+                                                        <>
+                                                            <ModalHeader className="flex flex-col gap-1">
+                                                                Politique de confidentialité
+                                                            </ModalHeader>
+                                                            <ModalBody>
+                                                                <p>
+                                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                                    Nullam pulvinar risus non risus hendrerit venenatis.
+                                                                    Pellentesque sit amet hendrerit risus, sed porttitor quam.
+                                                                </p>
+                                                                <p>
+                                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                                    Nullam pulvinar risus non risus hendrerit venenatis.
+                                                                    Pellentesque sit amet hendrerit risus, sed porttitor quam.
+                                                                </p>
+                                                                <p>
+                                                                    Magna exercitation reprehenderit magna aute tempor cupidatat
+                                                                    consequat elit dolor adipisicing. Mollit dolor eiusmod sunt ex
+                                                                    incididunt cillum quis. Velit duis sit officia eiusmod Lorem
+                                                                    aliqua enim laboris do dolor eiusmod. Et mollit incididunt
+                                                                    nisi consectetur esse laborum eiusmod pariatur proident Lorem
+                                                                    eiusmod et. Culpa deserunt nostrud ad veniam.
+                                                                </p>
+                                                                <p>
+                                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                                    Nullam pulvinar risus non risus hendrerit venenatis.
+                                                                    Pellentesque sit amet hendrerit risus, sed porttitor quam.
+                                                                    Magna exercitation reprehenderit magna aute tempor cupidatat
+                                                                    consequat elit dolor adipisicing. Mollit dolor eiusmod sunt ex
+                                                                    incididunt cillum quis. Velit duis sit officia eiusmod Lorem
+                                                                    aliqua enim laboris do dolor eiusmod. Et mollit incididunt
+                                                                    nisi consectetur esse laborum eiusmod pariatur proident Lorem
+                                                                    eiusmod et. Culpa deserunt nostrud ad veniam.
+                                                                </p>
+                                                                <p>
+                                                                    Mollit dolor eiusmod sunt ex incididunt cillum quis. Velit
+                                                                    duis sit officia eiusmod Lorem aliqua enim laboris do dolor
+                                                                    eiusmod. Et mollit incididunt nisi consectetur esse laborum
+                                                                    eiusmod pariatur proident Lorem eiusmod et. Culpa deserunt
+                                                                    nostrud ad veniam. Lorem ipsum dolor sit amet, consectetur
+                                                                    adipiscing elit. Nullam pulvinar risus non risus hendrerit
+                                                                    venenatis. Pellentesque sit amet hendrerit risus, sed
+                                                                    porttitor quam. Magna exercitation reprehenderit magna aute
+                                                                    tempor cupidatat consequat elit dolor adipisicing. Mollit
+                                                                    dolor eiusmod sunt ex incididunt cillum quis. Velit duis sit
+                                                                    officia eiusmod Lorem aliqua enim laboris do dolor eiusmod. Et
+                                                                    mollit incididunt nisi consectetur esse laborum eiusmod
+                                                                    pariatur proident Lorem eiusmod et. Culpa deserunt nostrud ad
+                                                                    veniam.
+                                                                </p>
+                                                                <p>
+                                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                                    Nullam pulvinar risus non risus hendrerit venenatis.
+                                                                    Pellentesque sit amet hendrerit risus, sed porttitor quam.
+                                                                </p>
+                                                                <p>
+                                                                    Magna exercitation reprehenderit magna aute tempor cupidatat
+                                                                    consequat elit dolor adipisicing. Mollit dolor eiusmod sunt ex
+                                                                    incididunt cillum quis. Velit duis sit officia eiusmod Lorem
+                                                                    aliqua enim laboris do dolor eiusmod. Et mollit incididunt
+                                                                    nisi consectetur esse laborum eiusmod pariatur proident Lorem
+                                                                    eiusmod et. Culpa deserunt nostrud ad veniam.
+                                                                </p>
+                                                                <p>
+                                                                    Mollit dolor eiusmod sunt ex incididunt cillum quis. Velit
+                                                                    duis sit officia eiusmod Lorem aliqua enim laboris do dolor
+                                                                    eiusmod. Et mollit incididunt nisi consectetur esse laborum
+                                                                    eiusmod pariatur proident Lorem eiusmod et. Culpa deserunt
+                                                                    nostrud ad veniam. Lorem ipsum dolor sit amet, consectetur
+                                                                    adipiscing elit. Nullam pulvinar risus non risus hendrerit
+                                                                    venenatis. Pellentesque sit amet hendrerit risus, sed
+                                                                    porttitor quam. Magna exercitation reprehenderit magna aute
+                                                                    tempor cupidatat consequat elit dolor adipisicing. Mollit
+                                                                    dolor eiusmod sunt ex incididunt cillum quis. Velit duis sit
+                                                                    officia eiusmod Lorem aliqua enim laboris do dolor eiusmod. Et
+                                                                    mollit incididunt nisi consectetur esse laborum eiusmod
+                                                                    pariatur proident Lorem eiusmod et. Culpa deserunt nostrud ad
+                                                                    veniam.
+                                                                </p>
+                                                            </ModalBody>
+                                                            <ModalFooter>
+                                                                <Button color="danger" variant="light" onPress={onClose}>
+                                                                    Close
+                                                                </Button>
+                                                            </ModalFooter>
+                                                        </>
+                                                    )}
+                                                </ModalContent>
+                                            </Modal>
                                     </div>
                                     <button className='py-3 w-full border-none flex items-center text-sm justify-center border rounded-lg bg-action-primary font-bold '>{Text.SignUp.button} </button>
                                 </form>
@@ -215,6 +333,7 @@ const SignUp = () => {
                 </div>
             </div>
         </div>
+      </div>
     )
 }
 

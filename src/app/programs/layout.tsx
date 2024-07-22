@@ -29,9 +29,9 @@ export default function RootLayout({
           {children}
         </GlobalProvider>
         <div>
-          <div className='bg-secondary-color'>
+        <div className='bg-secondary-color'>
             <Footer />
-          </div>
+         </div>
         </div>
       </div>
     </div>

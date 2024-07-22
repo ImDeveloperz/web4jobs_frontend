@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "./globals.css";
 import GlobalProvider from "../providers/GlobalProvider";
-
+import { NextUIProvider } from "@nextui-org/react";
 
 const nunito = Nunito(
   {
@@ -24,9 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={nunito.className} >
+        <NextUIProvider>
           <GlobalProvider >
             {children}
           </GlobalProvider>
+        </NextUIProvider>
       </body>
     </html>
   );
