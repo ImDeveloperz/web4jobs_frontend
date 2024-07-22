@@ -14,6 +14,7 @@ import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDi
 
 import Loading from '@/components/loading/Loading';
 import BackLink from '@/components/utils/backLink/BackLink';
+import PrivacyPolicy from '@/components/utils/privacy&policy/PrivacyPolicy';
 const styleInput = 'py-3 pl-6 rounded-lg bg-transparent border text-quaternary-color focus:outline-none focus:border-primary-color w-full';
 
 
@@ -237,80 +238,7 @@ const SignUp = () => {
                                                                 Politique de confidentialité
                                                             </ModalHeader>
                                                             <ModalBody>
-                                                                <p>
-                                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                                    Nullam pulvinar risus non risus hendrerit venenatis.
-                                                                    Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                                                                </p>
-                                                                <p>
-                                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                                    Nullam pulvinar risus non risus hendrerit venenatis.
-                                                                    Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                                                                </p>
-                                                                <p>
-                                                                    Magna exercitation reprehenderit magna aute tempor cupidatat
-                                                                    consequat elit dolor adipisicing. Mollit dolor eiusmod sunt ex
-                                                                    incididunt cillum quis. Velit duis sit officia eiusmod Lorem
-                                                                    aliqua enim laboris do dolor eiusmod. Et mollit incididunt
-                                                                    nisi consectetur esse laborum eiusmod pariatur proident Lorem
-                                                                    eiusmod et. Culpa deserunt nostrud ad veniam.
-                                                                </p>
-                                                                <p>
-                                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                                    Nullam pulvinar risus non risus hendrerit venenatis.
-                                                                    Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                                                                    Magna exercitation reprehenderit magna aute tempor cupidatat
-                                                                    consequat elit dolor adipisicing. Mollit dolor eiusmod sunt ex
-                                                                    incididunt cillum quis. Velit duis sit officia eiusmod Lorem
-                                                                    aliqua enim laboris do dolor eiusmod. Et mollit incididunt
-                                                                    nisi consectetur esse laborum eiusmod pariatur proident Lorem
-                                                                    eiusmod et. Culpa deserunt nostrud ad veniam.
-                                                                </p>
-                                                                <p>
-                                                                    Mollit dolor eiusmod sunt ex incididunt cillum quis. Velit
-                                                                    duis sit officia eiusmod Lorem aliqua enim laboris do dolor
-                                                                    eiusmod. Et mollit incididunt nisi consectetur esse laborum
-                                                                    eiusmod pariatur proident Lorem eiusmod et. Culpa deserunt
-                                                                    nostrud ad veniam. Lorem ipsum dolor sit amet, consectetur
-                                                                    adipiscing elit. Nullam pulvinar risus non risus hendrerit
-                                                                    venenatis. Pellentesque sit amet hendrerit risus, sed
-                                                                    porttitor quam. Magna exercitation reprehenderit magna aute
-                                                                    tempor cupidatat consequat elit dolor adipisicing. Mollit
-                                                                    dolor eiusmod sunt ex incididunt cillum quis. Velit duis sit
-                                                                    officia eiusmod Lorem aliqua enim laboris do dolor eiusmod. Et
-                                                                    mollit incididunt nisi consectetur esse laborum eiusmod
-                                                                    pariatur proident Lorem eiusmod et. Culpa deserunt nostrud ad
-                                                                    veniam.
-                                                                </p>
-                                                                <p>
-                                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                                    Nullam pulvinar risus non risus hendrerit venenatis.
-                                                                    Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                                                                </p>
-                                                                <p>
-                                                                    Magna exercitation reprehenderit magna aute tempor cupidatat
-                                                                    consequat elit dolor adipisicing. Mollit dolor eiusmod sunt ex
-                                                                    incididunt cillum quis. Velit duis sit officia eiusmod Lorem
-                                                                    aliqua enim laboris do dolor eiusmod. Et mollit incididunt
-                                                                    nisi consectetur esse laborum eiusmod pariatur proident Lorem
-                                                                    eiusmod et. Culpa deserunt nostrud ad veniam.
-                                                                </p>
-                                                                <p>
-                                                                    Mollit dolor eiusmod sunt ex incididunt cillum quis. Velit
-                                                                    duis sit officia eiusmod Lorem aliqua enim laboris do dolor
-                                                                    eiusmod. Et mollit incididunt nisi consectetur esse laborum
-                                                                    eiusmod pariatur proident Lorem eiusmod et. Culpa deserunt
-                                                                    nostrud ad veniam. Lorem ipsum dolor sit amet, consectetur
-                                                                    adipiscing elit. Nullam pulvinar risus non risus hendrerit
-                                                                    venenatis. Pellentesque sit amet hendrerit risus, sed
-                                                                    porttitor quam. Magna exercitation reprehenderit magna aute
-                                                                    tempor cupidatat consequat elit dolor adipisicing. Mollit
-                                                                    dolor eiusmod sunt ex incididunt cillum quis. Velit duis sit
-                                                                    officia eiusmod Lorem aliqua enim laboris do dolor eiusmod. Et
-                                                                    mollit incididunt nisi consectetur esse laborum eiusmod
-                                                                    pariatur proident Lorem eiusmod et. Culpa deserunt nostrud ad
-                                                                    veniam.
-                                                                </p>
+                                                                <PrivacyPolicy/>
                                                             </ModalBody>
                                                             <ModalFooter>
                                                                 <Button color="danger" variant="light" onPress={onClose}>

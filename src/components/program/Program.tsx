@@ -22,7 +22,7 @@ const Program = ({item} : ProgramProps) => {
         <HeaderProgram title={item.Hero.title} subTitle={item.Hero.subTitle} review={item.Hero.review} imageUrl={item.Hero.image} description={item.Hero.description} />
         <Aquirements title={item.Aquirements.title} subTitle={item.Aquirements.subTitle} list={item.Aquirements.list} imageUrl={item.Aquirements.image} />
         <WhatToExpect title={item.WhatToExpect.title} subTitle={item.WhatToExpect.subTitle} cards={item.WhatToExpect.cards} />
-        <Schedule title={item.Cources.title} subTitle={item.Cources.subtitle} subTitle2={item.Cources?.subTitle2}  cards={item.Cources.cards} />
+        <Schedule title={item.Cources.title} link={item.Cources.link} subTitle={item.Cources.subTitle} subTitle2={item.Cources?.subTitle2}  cards={item.Cources.cards} />
     </div>
   )
 }

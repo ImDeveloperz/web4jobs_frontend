@@ -5,6 +5,8 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 interface MenuItem {
     name: string;
@@ -12,7 +14,7 @@ interface MenuItem {
 }
 
 const MobileNavigation: React.FC = () => {
-    const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false);  
+    const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false);
     const [activeSection, setActiveSection] = useState<string>('');
     const [targetSection, setTargetSection] = useState<string>('');
     const pathname = usePathname();
@@ -76,7 +78,13 @@ const MobileNavigation: React.FC = () => {
                             onClick={async () => {
                                 setIsOpenMenu(false);
                                 if (item.name === 'Blogs') {
-                                    await router.push(item.link);
+                                    const MySwal = withReactContent(Swal);
+                                    MySwal.fire({
+                                        title: 'Coming Soon!',
+                                        text: 'This feature is not yet available.',
+                                        icon: 'info',
+                                        confirmButtonText: 'Okay'
+                                    });
                                 } else {
                                     if (pathname !== '/') {
                                         await router.push('/' + item.link);

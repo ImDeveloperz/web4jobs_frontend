@@ -1,3 +1,5 @@
+import { link } from "fs";
+
 const Text = {
     Navbar: {
         listMenu: [
@@ -258,6 +260,8 @@ const Text = {
                 title: "Course Meeting Schedule",
                 subTitle: "This is a schedule of our courses,",
                 subTitle2: "Download the program",
+                link : "/W4JQQCP22-FT-FullStack.pdf",
+                
                 cards: [
                     {
                         title: "Level 1 : NOOB",
@@ -370,8 +374,9 @@ const Text = {
             },
             Cources: {
                 title: "Course Meeting Schedule",
-                subtitle: "This is a schedule of our courses,",
+                subTitle: "This is a schedule of our courses,",
                 subTitle2: "Download the program",
+                link : "/W4JQQCP22-FT-DevOps_Cloud.pdf",
                 cards: [
                     {
                         title: "Level 1 : NOOB",
@@ -478,8 +483,9 @@ const Text = {
             },
             Cources: {
                 title: "Course Meeting Schedule",
-                subtitle: "This is a schedule of our courses,",
+                subTitle: "This is a schedule of our courses,",
                 subTitle2: "Download the program",
+                link : "/Web4Jobs by Qwasar Data Science Program Full Time.pdf",
                 cards: [
                     {
                         title: "Level 1 : NOOB",
@@ -596,8 +602,9 @@ const Text = {
             },
             Cources: {
                 title: "Course Meeting Schedule",
-                subtitle: "This is a schedule of our courses,",
+                subTitle: "This is a schedule of our courses,",
                 subTitle2: "Download the program",
+                link : "/W4JQ QCP22-FT-Machine Learning.pdf",
                 cards: [
                     {
                         title: "Level 1 : NOOB",
@@ -716,8 +723,9 @@ const Text = {
             },
             Cources: {
                 title: "Course Meeting Schedule",
-                subtitle: "This is a schedule of our courses,",
+                subTitle: "This is a schedule of our courses,",
                 subTitle2: "Download the program",
+                link : "/W4JQ QCP22-FT-Software Engineering.pdf",
                 cards: [
                     {
                         title: "Level 1 : NOOB",
@@ -771,44 +779,68 @@ const Text = {
     WhoAreYou: {
         Student: {
             title: "Student",
-            subTitle: "Lorem Ipsum Dolor Net Si!",
+            subTitle: "Welcome to Web4Jobs by Qwasar!",
             title2: "Introduction",
-            description1: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in.",
-            title3: "Privileges",
-            span1: "Students",
-            description2: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in.",
-            title4: "How A",
-            span2: "Student",
-            title5: "Can Contact Us?",
-            description3: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in.",
+            description1: "As a student, gaining strong and practical technical skills is crucial to succeeding in the tech world. Qwasar offers a unique opportunity to learn and grow in a stimulating and hands-on environment.",
+            title3: "Our value proposal :",
+            list : [
+                {
+                    title: "Project-Based Learning:",
+                    description: "Work on real-world projects that simulate industry scenarios.",
+                },
+                {
+                    title: "Practical Skills:",
+                    description: "Gain skills that are directly applicable in the job market.",
+                },
+                {
+                    title: "Mentorship and Support:",
+                    description: "Benefit from the guidance of experienced professionals to steer your learning journey.",
+                },
+            ],
             image: "/student.svg",
         },
         Corporate: {
             title: "Corporate",
-            subTitle: "Lorem Ipsum Dolor Net Si!",
+            subTitle: "Welcome to Web4Jobs by Qwasar!",
             title2: "Introduction",
-            description1: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in.",
-            title3: "Privileges",
-            span1: "Corporates",
-            description2: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in.",
-            title4: "How A",
-            span2: "Corporate",
-            title5: "Can Join Us?",
-            description3: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in.",
+            description1: "Today's businesses need skilled professionals who can tackle technological challenges. Qwasar offers training programs that can enhance the technical skills of your teams.",
+            title3: "Our value proposal :",
+            list : [
+                {
+                    title: "Continuous Learning:",
+                    description: "Provide your employees with opportunities to upskill and stay current with the latest technologies.",
+                },
+                {
+                    title: "Increased Productivity:",
+                    description: "Better-trained teams can lead to increased productivity and efficiency",
+                },
+                {
+                    title: "Innovation:",
+                    description: "Encourage innovation by equipping your teams with the skills needed to explore new solutions.",
+                },
+            ],
             image: "/corporate.svg",
         },
         PublicAdministration: {
             title: "Public Administration",
-            subTitle: "Lorem Ipsum Dolor Net Si!",
+            subTitle: "Welcome to Web4Jobs by Qwasar!",
             title2: "Introduction",
-            description1: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in.",
-            title3: "Privileges",
-            span1: "Public Administration",
-            description2: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in.",
-            title4: "How A",
-            span2: "Public Administration",
-            title5: "Can Contact Us?",
-            description3: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in.",
+            description1: "Government organizations play a crucial role in driving technological advancement and digital literacy. Qwasar offers a unique opportunity to collaborate in establishing regional coding centers that can empower communities and foster innovation.",
+            title3: "Our value proposal :",
+            list : [
+                {
+                    title: "Joint Collaboration:",
+                    description: "Partner with Qwasar to develop and operate regional coding centers, bringing cutting-edge technology education to communities.",
+                },
+                {
+                    title: "Skill Modernization:",
+                    description: "Equip public sector employees and community members with modern technological skills.",
+                },
+                {
+                    title: "Community Empowerment:",
+                    description: "Foster digital literacy and technological expertise, contributing to economic and social development.",
+                },
+            ],
             image: "/publicAdmin.svg",
         }
     },

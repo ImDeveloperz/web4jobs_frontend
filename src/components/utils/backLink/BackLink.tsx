@@ -8,7 +8,7 @@ const BackLink = () => {
     const router = useRouter();
   return (
     <div>
-        <button onClick={()=>{router.back()}} className=' mt-[100px] border border-primary-color rounded-full p-2 opacity-95'>
+        <button onClick={()=>{router.back()}} className=' mt-[120px] border border-primary-color rounded-full p-2 opacity-95'>
             <FaArrowLeft className='text-primary-color' />
         </button>
     </div>

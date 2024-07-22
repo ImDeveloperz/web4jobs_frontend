@@ -1,4 +1,5 @@
 "use client"
+import { screenWidth } from '@/components/navbar/Navbar';
 import { Text } from '@/constant';
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
@@ -6,7 +7,7 @@ import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
 
 const NavbarAuth = () => {
     const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
-    const [selectedLang, setSelectedLang] = React.useState('English (UK)');const [lastScrollY, setLastScrollY] = useState(0);
+    const [selectedLang, setSelectedLang] = React.useState('English (UK)'); const [lastScrollY, setLastScrollY] = useState(0);
     const [isHidden, setIsHidden] = useState(false);
 
     const handleScroll = () => {
@@ -32,15 +33,16 @@ const NavbarAuth = () => {
     }, [lastScrollY]);
 
     return (
-        <nav className={`py-4  backdrop-blur-sm top-0  mx-auto fixed transition-transform duration-300 z-10  w-full text-primary-color  ${isHidden ? '-translate-y-full' : 'translate-y-0'} `}>
+        <nav className={`py-6  backdrop-blur-sm top-0  mx-auto fixed transition-transform duration-300 z-10  w-full text-primary-color  ${isHidden ? '-translate-y-full' : 'translate-y-0'} `}>
+            <div className={`${screenWidth}`}>
                 <div className='lg:hidden'>
-                    <Image src='/logo.svg'  alt='logo' width={166} height={61} priority/>
+                    <Image src='/logo.svg' alt='logo' width={166} height={61} priority />
                 </div>
                 <div className='lg:flex hidden'>
                     <Image src='/logo.svg' alt='log:pt-4 md:pt-6 pt-8 go' width={150} height={200} priority />
                 </div>
-            <div>
-                {/*langue
+                <div>
+                    {/*langue
                 <div className='relative ' onMouseEnter={() => setIsDropdownOpen(true)} onMouseLeave={() => setIsDropdownOpen(false)}>
                     <div className="flex gap-1 cursor-pointer items-center" onClick={() => setIsDropdownOpen((prev) => !prev)} >
                         <span>{selectedLang}</span>
@@ -67,6 +69,7 @@ const NavbarAuth = () => {
                     </div> 
                 </div>
                 */}
+                </div>
             </div>
         </nav>
     )

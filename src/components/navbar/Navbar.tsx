@@ -6,6 +6,8 @@ import Link from 'next/link';
 import Profile from '../dashboard/utils/profile/Profile';
 import MobileNavigation from './MobileNavigation';
 import { useRouter } from 'next/navigation';
+import withReactContent from 'sweetalert2-react-content';
+import Swal from 'sweetalert2';
 
 export const buttonCssPrimary = "bg-action-primary px-6 focus:bg-focus-primary rounded-md font-bold text-[14px] hover:bg-hover-primary py-3";
 export const screenWidth = "2xl:max-w-[1200px] mx-auto xl:max-w-[1300px] lg:max-w-[1000px] md:max-w-[1000px] max-w-[700px] px-6";
@@ -84,7 +86,15 @@ const Navbar: React.FC<NavbarProps> = ({ user, logout }) => {
                                         className={`cursor-pointer hover:font-bold ${activeSection === item.link.slice(1) ? 'underline font-bold underline-offset-8' : ''}`}
                                         onClick={async () => {
                                             if (item.name === 'Blogs') {
-                                                router.push(item.link);
+                                                //show sweet alert
+                                                const MySwal = withReactContent(Swal);
+                                                 MySwal.fire({
+                                                    title: 'Coming Soon!',
+                                                    text: 'Blogs are not yet available.',
+                                                    icon: 'info',
+                                                    confirmButtonText: 'Okay'
+                                                });
+
                                             } else {
                                                 if (window.location.pathname !== '/') {
                                                     await router.push('/' + item.link);
@@ -101,7 +111,10 @@ const Navbar: React.FC<NavbarProps> = ({ user, logout }) => {
                             </ul>
                         </div>
                         {user ? (
-                            <Profile user={user} logout={logout} />
+                            <div className='flex items-center gap-4'>
+                                <Link href="/game" className='font-bold hover:text-teriatory-color hover:underline cursor-pointer ' >Try Our Logic Game!</Link>
+                                <Profile user={user} logout={logout} />
+                            </div>
                         ) : (
                             <Link href="/signup">
                                 <button className={buttonCssPrimary}>{Text.Navbar.button}</button>
