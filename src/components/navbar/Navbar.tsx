@@ -112,7 +112,7 @@ const Navbar: React.FC<NavbarProps> = ({ user, logout }) => {
                         </div>
                         {user ? (
                             <div className='flex items-center gap-4'>
-                                <Link href="/game" className='font-bold hover:text-teriatory-color hover:underline cursor-pointer ' >Try Our Logic Game!</Link>
+                                <Link href="/game" className='font-bold text-tertiary-color hover:underline cursor-pointer ' >Try Our Logic Game!</Link>
                                 <Profile user={user} logout={logout} />
                             </div>
                         ) : (
