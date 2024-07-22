@@ -32,7 +32,7 @@ const NavbarAuth = () => {
     }, [lastScrollY]);
 
     return (
-        <nav className={`py-6  backdrop-blur-sm top-0  mx-auto fixed transition-transform duration-300 z-10  w-full text-primary-color  ${isHidden ? '-translate-y-full' : 'translate-y-0'} `}>
+        <nav className={`py-4  backdrop-blur-sm top-0  mx-auto fixed transition-transform duration-300 z-10  w-full text-primary-color  ${isHidden ? '-translate-y-full' : 'translate-y-0'} `}>
                 <div className='lg:hidden'>
                     <Image src='/logo.svg'  alt='logo' width={166} height={61} priority/>
                 </div>
