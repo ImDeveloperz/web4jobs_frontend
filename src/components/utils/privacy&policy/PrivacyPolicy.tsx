@@ -14,7 +14,7 @@ const PrivacyPolicy = () => {
         For clarity, Web4jobs by Qwasar uses a specific program and processes your data exclusively, securely, and confidentially on computer server systems, which aim to secure them effectively, relying on the network of information technology providers, external networks, and specialists in this field.
       </p>
       <p className="mb-4">
-        If you believe that your data is not properly protected as required, or if you see indications of misuse of this data, please contact us by email: <a href="mailto:welcome@yool.education" className="text-blue-500">welcome@yool.education</a>
+        If you believe that your data is not properly protected as required, or if you see indications of misuse of this data, please contact us by email: <a href="mailto: welcome@web4jobs.ma" className="text-blue-500"> welcome@web4jobs.ma</a>
       </p>
       <h2 className="text-2xl font-semibold mb-4">Data Collection</h2>
       <p className="mb-4">
@@ -44,7 +44,7 @@ const PrivacyPolicy = () => {
         We cannot verify whether the visitor or any other person is under 16. We also recommend that parents participate in monitoring their children s online activities to prevent data collection about them without parental consent.
       </p>
       <p className="mb-4">
-        If you believe that we have collected personal data about a minor without obtaining their consent, please contact us by email: <a href="mailto:welcome@yool.education" className="text-blue-500">welcome@yool.education</a>
+        If you believe that we have collected personal data about a minor without obtaining their consent, please contact us by email: <a href="mailto: welcome@web4jobs.ma" className="text-blue-500"> welcome@web4jobs.ma</a>
       </p>
       <h2 className="text-2xl font-semibold mb-4">Data Usage</h2>
       <p className="mb-4">
@@ -111,7 +111,7 @@ const PrivacyPolicy = () => {
         If you have any questions or complaints regarding our compliance with the privacy policy of the data.
       </p>
       <p className="mb-4">
-        If you wish to provide recommendations or comments to improve the quality of our website, contact us by email at: <a href="mailto:welcome@yool.education" className="text-blue-500">welcome@yool.education</a>
+        If you wish to provide recommendations or comments to improve the quality of our website, contact us by email at: <a href="mailto: welcome@web4jobs.ma" className="text-blue-500"> welcome@web4jobs.ma</a>
       </p>
       <p className="mb-4">Last modified on Jul 1, 2024</p>
     </div>
