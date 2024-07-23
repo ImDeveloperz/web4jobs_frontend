@@ -76,7 +76,7 @@ const InsertCode = () => {
   }
 
   return (
-    <div className='lg:w-[50%] w-full pt-10 gap-10 text-white flex-col  flex items-center justify-center'>
+    <div className='lg:w-[50%] w-full pt-10 gap-10 text-white flex-col flex items-center justify-center'>
       <div className='flex flex-col gap-1'>
         <div className='md:text-3xl text-2xl text-center font-bold'>{Text.ForgotPassword2.title}</div>
         <div className='md:text-sm text-xs text-center'>{Text.ForgotPassword2.subTitle}</div>
@@ -93,7 +93,7 @@ const InsertCode = () => {
                 className="lg:w-14 md:w-10 w-8 bg-transparent lg:h-14 md:h-10 h-10  text-center md:text-2xl text-sm font-extrabold hover:border-slate-200 appearance-none rounded lg:p-4 md:p-3 p-2 outline-none"
                 maxLength={1}
               />
-              <div className={`w-full h-[1px]`}></div>
+              <div className={`w-full h-[1px] `}></div>
             </div>
           ))}
         </div>
