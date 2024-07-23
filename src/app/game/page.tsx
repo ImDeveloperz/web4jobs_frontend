@@ -12,20 +12,29 @@ const page = () => {
     <div className={`bg-primary-color text-primary-color `} >
       <div>
         <NavbarAuth />
-        <div className={`${screenWidth}`}>
-          <BackLink />
-          <div className=' flex items-center  justify-center flex-col gap-3 '>
-            <h1 className="text-5xl ">Entry Quiz</h1>
-            <p className='text-sm' >Play the game to help us know your level!</p>
+        <div >
+          <div className={`${screenWidth}`} >
+            <BackLink />
+          </div>
+          <div className={` flex items-center  justify-center flex-col gap-3 `}>
+              <h1 className="text-5xl ">Entry Quiz</h1>
+              <p className='text-sm' >Play the game to help us know your level!</p>
             {/*irframe*/}
-            <div className='w-full h-[800px] '>
+            <div className={`w-full h-[800px] md:flex hidden ${screenWidth} `} >
               <iframe src="https://logic-game.qwasar.io/" width="100%" height="100%" frameBorder="0" allowFullScreen={true} allow="autoplay; fullscreen" title="quiz"></iframe>
             </div>
-            <div className='justify-end flex w-full items-end p-6 '>
-            <Link href="/" className={buttonCssPrimary} >
-              I Give Up!
-            </Link>
-          </div>
+            <div className={`w-full  h-[800px] md:hidden flex `} >
+              <iframe src="https://logic-game.qwasar.io/" width="100%" height="100%" frameBorder="0" allowFullScreen={true} allow="autoplay; fullscreen" title="quiz"></iframe>
+            </div>
+            <div className={`justify-end  w-full flex w-full md:items-end p-6 ${screenWidth}`} >
+              <Link href="/" className={buttonCssPrimary} >
+                I Give Up!
+              </Link>
+            </div>
+            {/*tips and trics*/}
+            <div>
+
+            </div>
           </div>
         </div>
         <Footer />
