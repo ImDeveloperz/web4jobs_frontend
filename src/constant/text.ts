@@ -173,21 +173,21 @@ const Text = {
                     {
                         image: "/student.svg",
                         title: "Student",
-                        description: "Regardless of where you start in your journey, prepare yourself to take your career to the next level.",
+                        description: "As a student, gaining strong and practical technical skills is crucial to succeeding in the tech world.",
                         buttonText: "Join Now!",
                         link: "whoAreYou/student"
                     },
                     {
                         image: "/corporate.svg",
                         title: "Corporate",
-                        description: "Regardless of where you start in your journey, prepare yourself to take your career to the next level.",
+                        description: "Today's businesses need skilled professionals who can tackle technological challenges.",
                         buttonText: "Join Now!",
                         link: "whoAreYou/corporate"
                     },
                     {
                         image: "/publicAdmin.svg",
                         title: "Public Administration",
-                        description: "Regardless of where you start in your journey, prepare yourself to take your career to the next level.",
+                        description: "Government organizations play a crucial role in driving technological advancement and digital literacy.",
                         buttonText: "Join Now!",
                         link: "whoAreYou/publicAdministration"
                     },

@@ -88,7 +88,7 @@ const Navbar: React.FC<NavbarProps> = ({ user, logout }) => {
                                             if (item.name === 'Blogs') {
                                                 //show sweet alert
                                                 const MySwal = withReactContent(Swal);
-                                                 MySwal.fire({
+                                                MySwal.fire({
                                                     title: 'Coming Soon!',
                                                     text: 'Blogs are not yet available.',
                                                     icon: 'info',
@@ -126,8 +126,9 @@ const Navbar: React.FC<NavbarProps> = ({ user, logout }) => {
                     <div>
                         <Image src='/logo.svg' layout="intrinsic" alt='logo' width={144} height={41} />
                     </div>
-                    <section className="MOBILE-MENU flex lg:hidden">
-                        <MobileNavigation />
+                    <section className="MOBILE-MENU flex items-center gap-3 lg:hidden">
+                        <Link href="/game" className='font-bold text-tertiary-color hover:underline text-sm cursor-pointer ' >Try Our Logic Game!</Link>
+                        <MobileNavigation user={user} logout={logout} />
                     </section>
                 </div>
             </div>

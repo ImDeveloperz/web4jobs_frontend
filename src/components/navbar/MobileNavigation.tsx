@@ -13,7 +13,11 @@ interface MenuItem {
     link: string;
 }
 
-const MobileNavigation: React.FC = () => {
+interface NavbarProps {
+    user: any;
+    logout: any;
+}
+const MobileNavigation: React.FC<NavbarProps> = ({user,logout}) => {
     const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false);
     const [activeSection, setActiveSection] = useState<string>('');
     const [targetSection, setTargetSection] = useState<string>('');
@@ -98,9 +102,12 @@ const MobileNavigation: React.FC = () => {
                             {item.name}
                         </li>
                     ))}
-                    <Link href="/signup">
+                    
+                        {!user && (<Link href="/signup">
                         <button className='bg-action-secondary text-black cursor-pointer rounded-md font-bold flex items-center justify-center w-[200px] py-3'>{Text.Navbar.button}</button>
-                    </Link>
+                    </Link>)
+                         }
+                
                 </ul>
             </div>
         </>
